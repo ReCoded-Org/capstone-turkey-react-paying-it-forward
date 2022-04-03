@@ -19,3 +19,10 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+const btn = document.querySelector("#toggle-navbar");
+const menu = document.querySelector("#mobile-menu");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
