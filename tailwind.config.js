@@ -3,9 +3,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#ff7338'
-      }
-    }
+        primary: '#ff7338',
+      },
+      screens: {
+        mdd: '850px',
+      },
+    },
   },
   plugins: [],
 };

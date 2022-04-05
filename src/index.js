@@ -20,9 +20,9 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-const btn = document.querySelector("#toggle-navbar");
-const menu = document.querySelector("#mobile-menu");
+const btn = document.querySelector('#toggle-navbar');
+const menu = document.querySelector('#mobile-menu');
 
-btn.addEventListener("click", () => {
-  menu.classList.toggle("hidden");
+btn.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
 });
