@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import iconProfile from '../assets/profile.svg';
+import PropTypes from 'prop-types';
 
-function Navbar() {
-  // This is temporary state as we will work next with redux
+import iconProfile from '../assets/profile.svg';
+import path from '../routes';
+
+function Navbar({ isLogin }) {
   const [lang, setLang] = useState('en');
   const [search, setSearch] = useState('');
-  const isLogin = true;
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -74,7 +75,7 @@ function Navbar() {
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/">
+              <Link to={path.HOME}>
                 <h5 className="block lg:hidden text-4xl font-bold text-center text-white">
                   PayingIt
                 </h5>
@@ -88,7 +89,7 @@ function Navbar() {
             <div className="hidden mdd:block lg:ml-6">
               <div className="flex space-x-2 items-center">
                 <Link
-                  to="/"
+                  to={path.HOME}
                   className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Home
@@ -114,7 +115,7 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/donation"
+                            to={path.DONATION}
                           >
                             Books
                           </Link>
@@ -122,7 +123,7 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/donation"
+                            to={path.DONATION}
                           >
                             Stationery
                           </Link>
@@ -130,7 +131,7 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/donation"
+                            to={path.DONATION}
                           >
                             Furniture
                           </Link>
@@ -138,15 +139,15 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/donation"
+                            to={path.DONATION}
                           >
-                            School books
+                            School Books
                           </Link>
                         </li>
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/donation"
+                            to={path.DONATION}
                           >
                             Novels
                           </Link>
@@ -154,7 +155,7 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/donation"
+                            to={path.DONATION}
                           >
                             Exam Books
                           </Link>
@@ -179,7 +180,7 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/request"
+                            to={path.REQUEST}
                           >
                             Books
                           </Link>
@@ -187,7 +188,7 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/request"
+                            to={path.REQUEST}
                           >
                             Stationery
                           </Link>
@@ -195,7 +196,7 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/request"
+                            to={path.REQUEST}
                           >
                             Furniture
                           </Link>
@@ -203,15 +204,15 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/request"
+                            to={path.REQUEST}
                           >
-                            School books
+                            School Books
                           </Link>
                         </li>
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/request"
+                            to={path.REQUEST}
                           >
                             Novels
                           </Link>
@@ -219,7 +220,7 @@ function Navbar() {
                         <li>
                           <Link
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                            to="/request"
+                            to={path.REQUEST}
                           >
                             Exam Books
                           </Link>
@@ -230,20 +231,20 @@ function Navbar() {
                 )}
 
                 <Link
-                  to="/how-it-works"
+                  to={path.HOWITWORKS}
                   className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   How it works?
                 </Link>
                 <Link
-                  to="/aboutus"
+                  to={path.ABOUTUS}
                   className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   About Us
                 </Link>
                 {!isLogin && (
                   <Link
-                    to="/signup"
+                    to={path.SIGNUP}
                     className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Sign up
@@ -290,7 +291,7 @@ function Navbar() {
                       <li>
                         <Link
                           className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                          to="/logout"
+                          to={path.LOGOUT}
                         >
                           Logout
                         </Link>
@@ -337,7 +338,7 @@ function Navbar() {
       <div className="hidden" id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1">
           <Link
-            to="/"
+            to={path.HOME}
             className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             Home
@@ -345,13 +346,13 @@ function Navbar() {
           {isLogin && (
             <>
               <Link
-                to="/"
+                to={path.HOME}
                 className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Donation For
               </Link>
               <Link
-                to="/"
+                to={path.HOME}
                 className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Request For
@@ -359,20 +360,20 @@ function Navbar() {
             </>
           )}
           <Link
-            to="/how-it-works"
+            to={path.HOWITWORKS}
             className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             How it works?
           </Link>
           <Link
-            to="/aboutus"
+            to={path.ABOUTUS}
             className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             About Us
           </Link>
           {!isLogin && (
             <Link
-              to="/signup"
+              to={path.SIGNUP}
               className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               Sign up
@@ -380,7 +381,7 @@ function Navbar() {
           )}
           {isLogin && (
             <Link
-              to="/logout"
+              to={path.LOGOUT}
               className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               Logout
@@ -391,4 +392,9 @@ function Navbar() {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+};
+
 export default Navbar;
