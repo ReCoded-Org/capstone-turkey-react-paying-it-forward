@@ -1,14 +1,12 @@
 import { render, screen, fireEvent, wait } from '@testing-library/react';
-import Contactus from '../containers/Contactus';
+import ContactUs from '../pages/ContactUs';
 
 beforeEach(() => {
-  render(<Contactus />);
+  render(<ContactUs />);
 });
 
 test('Check entering in the inputs fields', async () => {
-  // fireEvent.change(screen.queryByLabelText(/full name/i), {
-  //     target: { value: '' }
-  // });
+
   await wait(() => {
     fireEvent.click(screen.queryByText(/send message/i));
   });

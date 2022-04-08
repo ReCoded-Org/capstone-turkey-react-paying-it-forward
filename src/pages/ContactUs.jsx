@@ -1,36 +1,19 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useRef } from 'react';
-import emailjs from 'emailjs-com';
+
 import contactus from '../assets/contactus.svg';
+import sendEmail from '../utils/utils';
 
 function Contactus() {
   const modelRef = useRef();
 
-  const sendEmail = (values) => {
-    console.log(modelRef);
-    emailjs
-      .send('service_va0wqwg', 'template_l4l91a5', values, 'JrpFs7BlCv1nsgafI')
-      .then(
-        () => {
-          modelRef.current.style.display = 'block';
-          modelRef.current.childNodes[0].style.display = 'block';
-          modelRef.current.childNodes[1].style.display = 'none';
-        },
-        () => {
-          modelRef.current.style.display = 'block';
-          modelRef.current.childNodes[1].style.display = 'block';
-          modelRef.current.childNodes[0].style.display = 'none';
-        },
-      );
-  };
-
   return (
     <section className="text-gray-600 body-font relative">
-      <h1 className="text-gray-400 text-5xl p-5 font-medium">CONTACT US.</h1>
+      <h1 className="text-gray-400 text-5xl p-5 font-medium">CONTACT US</h1>
       <h2 className="text-3xl font-medium drop-shadow-md px-10">
         Please get in touch and our expert team will answer all your questions.
       </h2>
-      <div className="container px-5 py-2 mx-auto flex sm:flex-nowrap flex-wrap flex-col md:flex-row items-center">
+      <div className="px-5 py-2 mx-auto flex sm:flex-nowrap flex-wrap flex-col md:flex-row items-center">
         <div className="lg:w-2/3 md:w-1/2 w-full">
           <img src={contactus} alt="Contact Us" />
         </div>
@@ -48,76 +31,83 @@ function Contactus() {
                 errors.name = 'Name is required';
               }
               if (values.message === '') {
-                errors.message = 'Bodys Message is required';
+                errors.message =
+                  'Please add a message at least one character long';
               }
               return errors;
             }}
             onSubmit={(values) => {
-              sendEmail(values);
+              sendEmail(values, modelRef);
             }}
           >
             <Form>
               <div className="mb-4 text-left">
-                <label
-                  htmlFor="name"
-                  className="uppercase text-sm text-gray-500 font-bold"
-                >
-                  Full Name
-                </label>
-                <Field
-                  type="text"
-                  name="name"
-                  id="name"
-                  className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                />
-                <ErrorMessage
-                  name="name"
-                  component="div"
-                  className="text-red-600 text-xs"
-                />
+                <Field name="name">
+                  {({ field }) => (
+                    <label
+                      htmlFor="name"
+                      className="uppercase text-sm text-gray-500 font-bold"
+                    >
+                      Full Name
+                      <input
+                        className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                        {...field}
+                      />
+                      <ErrorMessage
+                        name="name"
+                        component="div"
+                        className="text-red-600 text-xs normal-case font-normal"
+                      />
+                    </label>
+                  )}
+                </Field>
               </div>
               <div className="mb-4 text-left">
-                <label
-                  htmlFor="email"
-                  className="uppercase text-sm text-gray-500 font-bold"
-                >
-                  Email
-                </label>
-                <Field
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="text-red-600 text-xs"
-                />
+                <Field name="email">
+                  {({ field }) => (
+                    <label
+                      htmlFor="email"
+                      className="uppercase text-sm text-gray-500 font-bold"
+                    >
+                      Email
+                      <input
+                        className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                        {...field}
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className="text-red-600 text-xs normal-case font-normal"
+                      />
+                    </label>
+                  )}
+                </Field>
               </div>
               <div className="mb-4 text-left">
-                <label
-                  htmlFor="message"
-                  className="uppercase text-sm text-gray-500 font-bold"
-                >
-                  Message
-                </label>
-                <Field
-                  type="text"
-                  name="message"
-                  id="message"
-                  as="textarea"
-                  className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                />
-                <ErrorMessage
-                  name="message"
-                  component="div"
-                  className="text-red-600 text-xs"
-                />
+                <Field name="message">
+                  {({ field }) => (
+                    <label
+                      htmlFor="message"
+                      className="uppercase text-sm text-gray-500 font-bold"
+                    >
+                      Message
+                      <textarea
+                        rows="4"
+                        className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                        {...field}
+                      />
+                      <ErrorMessage
+                        name="message"
+                        component="div"
+                        className="text-red-600 text-xs normal-case font-normal"
+                      />
+                    </label>
+                  )}
+                </Field>
               </div>
               <button
                 type="submit"
-                className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline"
+                className="uppercase text-sm font-bold tracking-wide bg-primary text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline"
               >
                 Send Message
               </button>
@@ -191,7 +181,7 @@ function Contactus() {
             </h3>
             <div className="mt-2 px-7 py-3">
               <p className="text-sm text-gray-500">
-                Your message has not been sent successfully.
+                A problem has occured and we couldn&#39;t deliver your mail.
               </p>
             </div>
             <div className="items-center px-4 py-3">
@@ -211,20 +201,5 @@ function Contactus() {
     </section>
   );
 }
-
-// const modal = document.getElementById('my-modal');
-// const btn = document.getElementById('open-btn');
-// const button = document.getElementById('ok-btn');
-// btn.onclick = function () {
-//   modal.style.display = "block";
-// }
-// button.onclick = function () {
-//   modal.style.display = "none";
-// }
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
 
 export default Contactus;
