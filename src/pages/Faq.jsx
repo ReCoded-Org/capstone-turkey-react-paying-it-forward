@@ -8,7 +8,7 @@ function Faq() {
       <div className="flex items-center justify-center p-4">
         <img className="flex items-center" src={imagefaq} alt="faq" />
       </div>
-      <div className="flex items-center justify-center p-4">
+      <div className="flex items-center justify-center p-4" data-testid="faq-1">
         <h1 className="font-bold text-2xl">Frequently Asked Questions</h1>
       </div>
       <div className="p-10 bg-[#D8F4EC] text-gray-700 flex flex-col  items-center justify-center">
