@@ -20,8 +20,8 @@ const Subscription = () => {
       >
         {({ errors, touched }) => (
           <Form className='flex'>
-            <Field className="bg-[#D8F4EC] text-sm text-center text-[#FF7338] w-[110px] h-[45px] rounded-l-lg font-small" name="email" type="email" placeholder="Enter Your Email"/>
-            <button type="submit" className="text-[#FF7338] bg-[#FFFF] w-[80px] h-[45px] rounded-r-lg font-small">
+            <Field className="bg-[#D8F4EC] text-sm text-center text-[#FF7338] w-[110px] h-[45px] rounded-l-lg font-small" name="email" type="email" placeholder="Enter Your Email" data-testid="subscription"/>
+            <button type="submit" className="text-[#FF7338] bg-[#FFFF] w-[80px] h-[45px] rounded-r-lg font-small" data-testid='subscriptionButton'>
               Subscribe
             </button>
             {errors.email && touched.email ? <div>{errors.email}</div> : null}
