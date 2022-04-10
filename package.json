@@ -55,5 +55,9 @@
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
-  }
+  },
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+]
 }

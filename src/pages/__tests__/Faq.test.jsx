@@ -18,3 +18,8 @@ describe('snapshot test', () => {
         expect(component).toMatchSnapshot();
     })
 });
+
+jest.mock('module', () => ({
+    __esModule: true,
+    default: jest.fn()
+}));
