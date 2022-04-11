@@ -1,8 +1,3 @@
-// "jsx-a11y/label-has-associated-control": "off";
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-props-no-spreading */
-// eslint-disable-next-line object-curly-newline
-
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
@@ -47,7 +42,7 @@ export default function Login() {
                         Log In
                       </h1>
                     </div>
-                    <Form className="flex flex-col mx-[1px] h-[475px] p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6">
+                    <Form className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6">
                       <Field name="email">
                         {({ field }) => (
                           <div className="relative">

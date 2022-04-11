@@ -26,6 +26,7 @@
         "react/jsx-uses-react":["off"],
         "react/react-in-jsx-scope":["off"],
         "react/jsx-props-no-spreading":["warn"],
+        "jsx-a11y/label-has-associated-control":["off"],
         "no-param-reassign":["off"],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "testing-library/prefer-screen-queries":["off"]

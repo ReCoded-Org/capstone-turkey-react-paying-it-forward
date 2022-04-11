@@ -1,8 +1,3 @@
-// "jsx-a11y/label-has-associated-control": "off";
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-props-no-spreading */
-// eslint-disable-next-line object-curly-newline
-
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
