@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
 import App from './App';
-import { store } from './app/store';
+import store from './app/store';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -19,10 +19,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-const btn = document.querySelector('#toggle-navbar');
-const menu = document.querySelector('#mobile-menu');
-
-btn.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
-});
