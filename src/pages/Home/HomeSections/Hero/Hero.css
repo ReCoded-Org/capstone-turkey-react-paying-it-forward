@@ -1,0 +1,10 @@
+.class {
+  background-image: radial-gradient(
+    #d798e1 17.55%,
+    #9bffa5 27.56%,
+    #aed3ff 49.89%,
+    #c9d4ef 56.53%,
+    #cacffa 65.69%
+  );
+  filter: blur(400px);
+}
