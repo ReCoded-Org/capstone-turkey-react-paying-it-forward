@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Component matches 1`] = `
+exports[`Login matches 1`] = `
 <body
   className="font-roboto justify-center bg-[#FFFF]"
 >
@@ -132,11 +132,11 @@ exports[`Login Component matches 1`] = `
           </div>
         </figure>
         <div
-          className="hidden sm:block w-full lg:w-25/25 lg:w-5/12 bg-[#ff7338]"
+          className="hidden sm:block w-full relative lg:w-25/25 lg:w-5/12 bg-[#ff7338]"
         />
         <img
           alt="Light"
-          className="hidden sm:block w-[330px] h-[530px] mx-[-395px] my-[100px]"
+          className="hidden sm:block max-w-sm relative w-[330px] h-[530px] mx-[-395px] my-[100px]"
           src="Light.png"
         />
       </div>

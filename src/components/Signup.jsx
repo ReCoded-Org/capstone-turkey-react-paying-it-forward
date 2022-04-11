@@ -151,7 +151,7 @@ export default function Signup() {
               </figure>
               <div className="hidden sm:block w-full lg:w-25/25 lg:w-5/12 bg-[#ff7338]" />
               <img
-                className="hidden sm:block w-[330px] h-[530px] mx-[-395px] my-[100px]"
+                className="hidden sm:block max-w-sm w-[330px] h-[530px] mx-[-395px] my-[100px]"
                 src={Light}
                 alt="Light"
               />

@@ -1,15 +1,15 @@
-import React from "react";
-import Login from "../components/Login";
-import renderer from "react-test-renderer";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
+import renderer from 'react-test-renderer';
+import Login from '../components/Login';
 
-describe("Login Component", () => {
-  it("matches", () => {
+
+describe('Login', () => {
+  it('matches', () => {
     const tree = renderer
       .create(
         <BrowserRouter>
           <Login />
-        </BrowserRouter>
+        </BrowserRouter>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

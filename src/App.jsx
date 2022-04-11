@@ -1,10 +1,9 @@
-import Account from "./account";
-
+import Account from './account';
 
 function App() {
   return (
     <div className="App">
-    <Account/>
+      <Account />
     </div>
   );
 }
