@@ -1,189 +1,175 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import imagefaq from '../images/image-faq.png';
+import imagefaq from '../assets/images/image-faq.png';
 
 function Faq() {
   return (
-    <div className="container mx-auto p-16">
+    <div>
       <div className="flex items-center justify-center p-4">
         <img className="flex items-center" src={imagefaq} alt="faq" />
       </div>
-      <div className="flex items-center justify-center p-4" data-testid="faq-1">
-        <h1 className="font-bold text-2xl">Frequently Asked Questions</h1>
-      </div>
-      <div className="p-10 bg-[#D8F4EC] text-gray-700 flex flex-col  items-center justify-center">
-        <div className="relative w-[700px] overflow-hidden">
-          <input
-            type="checkbox"
-            className="
-          peer 
-          absolute top-0 inset-x-0 
-          w-full h-12 
-          opacity-0 z-10 cursor-pointer"
-          />
-          <div
-            className="
-        bg-blue-500 
-        h-12 w-full pl-5 
-        flex items-center"
+      <div className="accordion accordion-flush px-20">
+        <div className="accordion-item border-t-0 border-l-0 border-r-0 rounded-none bg-[#D8F4EC] border border-gray-200 mb-10">
+          <h2
+            className="accordion-header mb-0"
+            id="flush-headingOne"
+            data-testid="faq-1"
           >
-            <h1 className="text-lg font-semibold text-white">
+            <button
+              className="accordion-button
+    relative
+    flex
+    items-center
+    w-full
+    py-4
+    px-5
+    text-base text-gray-800 text-left
+    bg-[#D8F4EC]
+    border-0
+    rounded-none
+    transition
+    focus:outline-none
+    p-10
+    font-bold
+    text-lg"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+            >
               What is Paying It Forward?
-            </h1>
-          </div>
+            </button>
+          </h2>
           <div
-            className="
-        absolute top-3 right-3 
-        text-white transition-transform duration-500 
-        rotate-0 peer-checked:rotate-180
-        "
+            id="flush-collapseOne"
+            className="accordion-collapse border-0 collapse show"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample"
           >
-            <FontAwesomeIcon icon={faAngleDown} />
-          </div>
-          <div
-            className="
-        bg-[#D8F4EC]
-        overflow-hidden 
-        transition-all duration-500 
-        max-h-0 peer-checked:max-h-40"
-          >
-            <div className="p-4">
-              <p>
-                It is an application that provides donations to students, which
-                was established to reduce inequality in the education system.
-              </p>
+            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold">
+              It is an application that provides donations to students, which
+              was established to reduce inequality in the education system.
             </div>
           </div>
         </div>
-        <br />
-        <div className="relative w-[700px] overflow-hidden">
-          <input
-            type="checkbox"
-            className="
-          peer 
-          absolute top-0 inset-x-0 
-          w-full h-12 
-          opacity-0 z-10 cursor-pointer"
-          />
+        <div className="accordion-item border-l-0 border-r-0 rounded-none bg-[#D8F4EC] border border-gray-200 mb-10">
+          <h2 className="accordion-header mb-0" id="flush-headingTwo">
+            <button
+              className="accordion-button
+    collapsed
+    relative
+    flex
+    items-center
+    w-full
+    py-4
+    px-5
+    text-base text-gray-800 text-left
+    bg-[#D8F4EC]
+    border-0
+    rounded-none
+    transition
+    focus:outline-none
+    font-bold
+    text-lg"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo"
+            >
+              <div>How can you request an item?</div>
+            </button>
+          </h2>
           <div
-            className="
-        bg-blue-500 
-        h-12 w-full pl-5 
-        flex items-center"
+            id="flush-collapseTwo"
+            className="accordion-collapse border-0 collapse"
+            aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlushExample"
           >
-            <h1 className="text-lg font-semibold text-white">
-              How can you request an item?
-            </h1>
-          </div>
-          <div
-            className="
-        absolute top-3 right-3 
-        text-white transition-transform duration-500 
-        rotate-0 peer-checked:rotate-180
-        "
-          >
-            <FontAwesomeIcon icon={faAngleDown} />
-          </div>
-          <div
-            className="
-        bg-[#D8F4EC] 
-        overflow-hidden 
-        transition-all duration-500 
-        max-h-0 peer-checked:max-h-40"
-          >
-            <div className="p-4">
-              <p>
-                First of all, you must be a member of the application. After you
-                become a member, you must click on the request button on the
-                homepage. You can make a request by filling out the form that
-                opens.
-              </p>
+            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold">
+              First of all, you must be a member of the application. After you
+              become a member, you must click on the request button on the
+              homepage. You can make a request by filling out the form that
+              opens.
             </div>
           </div>
         </div>
-        <br />
-        <div className="relative w-[700px] overflow-hidden">
-          <input
-            type="checkbox"
-            className="
-          peer 
-          absolute top-0 inset-x-0 
-          w-full h-12 
-          opacity-0 z-10 cursor-pointer"
-          />
-          <div
-            className="
-        bg-blue-500 
-        h-12 w-full pl-5 
-        flex items-center"
-          >
-            <h1 className="text-lg font-semibold text-white">
+        <div className="accordion-item border-l-0 border-r-0 border-b-0 rounded-none bg-[#D8F4EC] border border-gray-200 mb-10">
+          <h2 className="accordion-header mb-0" id="flush-headingThree">
+            <button
+              className="accordion-button
+    collapsed
+    relative
+    flex
+    items-center
+    w-full
+    py-4
+    px-5
+    text-base text-gray-800 text-left
+    bg-[#D8F4EC]
+    border-0
+    rounded-none
+    transition
+    focus:outline-none
+    font-bold
+    text-lg"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree"
+            >
               How can you donate an item?
-            </h1>
-          </div>
+            </button>
+          </h2>
           <div
-            className="
-        absolute top-3 right-3 
-        text-white transition-transform duration-500 
-        rotate-0 peer-checked:rotate-180
-        "
+            id="flush-collapseThree"
+            className="accordion-collapse collapse"
+            aria-labelledby="flush-headingThree"
+            data-bs-parent="#accordionFlushExample"
           >
-            <FontAwesomeIcon icon={faAngleDown} />
-          </div>
-          <div
-            className="
-        bg-[#D8F4EC] 
-        overflow-hidden 
-        transition-all duration-500 
-        max-h-0 peer-checked:max-h-40"
-          >
-            <div className="p-4">
-              <p>
-                First of all, you must be a member of the application. After you
-                become a member, you must click on the donation button on the
-                homepage. You can donate by filling out the form.
-              </p>
+            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold">
+              First of all, you must be a member of the application. After you
+              become a member, you must click on the donation button on the
+              homepage. You can donate by filling out the form.
             </div>
           </div>
         </div>
-        <br />
-        <div className="relative w-[700px] overflow-hidden">
-          <input
-            type="checkbox"
-            className="
-          peer 
-          absolute top-0 inset-x-0 
-          w-full h-12 
-          opacity-0 z-10 cursor-pointer"
-          />
-          <div
-            className="
-        bg-blue-500 
-        h-12 w-full pl-5 
-        flex items-center"
-          >
-            <h1 className="text-lg font-semibold text-white">
+        <div className="accordion-item border-l-0 border-r-0 border-b-0 rounded-none bg-[#D8F4EC] border border-gray-200 mb-10">
+          <h2 className="accordion-header mb-0" id="flush-headingFour">
+            <button
+              className="accordion-button
+    collapsed
+    relative
+    flex
+    items-center
+    w-full
+    py-4
+    px-5
+    text-base text-gray-800 text-left
+    bg-[#D8F4EC]
+    border-0
+    rounded-none
+    transition
+    focus:outline-none
+    font-bold
+    text-lg"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseFour"
+              aria-expanded="false"
+              aria-controls="flush-collapseFour"
+            >
               Do I have to pay any fees to request or donate?
-            </h1>
-          </div>
+            </button>
+          </h2>
           <div
-            className="
-        absolute top-3 right-3 
-        text-white transition-transform duration-500 
-        rotate-0 peer-checked:rotate-180
-        "
+            id="flush-collapseFour"
+            className="accordion-collapse collapse"
+            aria-labelledby="flush-headingFour"
+            data-bs-parent="#accordionFlushExample"
           >
-            <FontAwesomeIcon icon={faAngleDown} />
-          </div>
-          <div
-            className="
-        bg-[#D8F4EC] 
-        overflow-hidden 
-        transition-all duration-500 
-        max-h-0 peer-checked:max-h-40"
-          >
-            <div className="p-4">
-              <p>It is completely free to request or donate.</p>
+            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold">
+              It is completely free to request or donate.
             </div>
           </div>
         </div>

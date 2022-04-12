@@ -7,7 +7,6 @@ test('should render Faq page', () => {
     render(<Faq />);
     const faqElement = screen.getByTestId('faq-1');
     expect(faqElement).toBeInTheDocument();
-    expect(faqElement.textContent).toBe('Frequently Asked Questions');
     expect(screen.getByText('What is Paying It Forward?')).toBeInTheDocument();
 
 });
