@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import contactus from '../assets/contactus.svg';
-import sendEmail from '../utils/utils';
+import contactus from '../assets/images/contactus.svg';
+import sendEmail from '../utils/sendEmail';
 
 function Contactus() {
   const modelRef = useRef();
@@ -51,7 +51,10 @@ function Contactus() {
                       Full Name
                       <input
                         className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                        {...field}
+                        name={field.name}
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
                       />
                       <ErrorMessage
                         name="name"
@@ -72,7 +75,10 @@ function Contactus() {
                       Email
                       <input
                         className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                        {...field}
+                        name={field.name}
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
                       />
                       <ErrorMessage
                         name="email"
@@ -94,7 +100,10 @@ function Contactus() {
                       <textarea
                         rows="4"
                         className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                        {...field}
+                        name={field.name}
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
                       />
                       <ErrorMessage
                         name="message"
