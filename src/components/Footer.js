@@ -1,5 +1,6 @@
-import Subscription from './Subscription';
-import Logo from '../logo.png';
+import SubscriptionForm from './SubscriptionForm';
+import Logo from '../assets/images/logo.png';
+import { ABOUT_US, QA, ITEMS, DONATORS, PRICING } from '../routes';
 
 export default function Footer() {
   return (
@@ -11,19 +12,19 @@ export default function Footer() {
             <h5 className="font-bold mb-1">Home</h5>
             <ul className="list-none mb-0">
               <li>
-                <a href="/items">Items</a>
+                <a href={ITEMS}>Items</a>
               </li>
               <li>
-                <a href="/donators">Donators</a>
+                <a href={DONATORS}>Donators</a>
               </li>
               <li>
-                <a href="#!">Pricing</a>
+                <a href={PRICING}>Pricing</a>
               </li>
               <li>
-                <a href="#!">About Us</a>
+                <a href={ABOUT_US}>About Us</a>
               </li>
               <li>
-                <a href="#!">QA</a>
+                <a href={QA}>QA</a>
               </li>
             </ul>
           </div>
@@ -66,8 +67,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="ml-[35px] h-[50px] hidden md:block">
-            <Subscription />
+          <div className="ml-[35px] h-[50px] w-[500px] hidden md:block">
+            <SubscriptionForm />
           </div>
         </div>
       </div>

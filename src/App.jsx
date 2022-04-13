@@ -1,4 +1,5 @@
 import './App.css';
+
 import routes from './routes';
 import { BrowserRouter} from 'react-router-dom';
 
@@ -6,7 +7,7 @@ import { BrowserRouter} from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Router routes={routes}/>
+      {/*<Router routes={routes}/> */}
     </div>
   );
 }
