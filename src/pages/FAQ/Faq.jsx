@@ -1,4 +1,4 @@
-import imagefaq from '../assets/images/image-faq.png';
+import imagefaq from '../../assets/images/image-faq.png';
 
 function Faq() {
   return (

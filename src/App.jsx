@@ -1,4 +1,4 @@
-import Faq from './pages/Faq';
+import Faq from './pages/FAQ/Faq';
 
 function App() {
   return (
