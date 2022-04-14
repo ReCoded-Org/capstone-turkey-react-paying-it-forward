@@ -2,9 +2,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
-import {
- Signup
- } from '../../routers';
+import { Signup } from '../../routes';
 import logoc from '../../assets/images/logoc.png';
 import Light from '../../assets/images/Light.png';
 

@@ -7,9 +7,9 @@ import Signup from './components/Signup/Signup';
 function App() {
   return (
     <div className="App">
-       <BrowserRouter>
-      <Login />
-      <Signup />
+      <BrowserRouter>
+        <Login />
+        <Signup />
       </BrowserRouter>
     </div>
   );

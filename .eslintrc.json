@@ -29,6 +29,7 @@
         "jsx-a11y/label-has-associated-control":["off"],
         "no-param-reassign":["off"],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "testing-library/prefer-screen-queries":["off"]
+        "testing-library/prefer-screen-queries":["off"],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
     }
 }
