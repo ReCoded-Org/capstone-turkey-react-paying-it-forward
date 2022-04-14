@@ -1,5 +1,6 @@
 import LogoPicture from '../assets/images/logo.png';
 import { ABOUT_US, QA, ITEMS, DONATORS, PRICING } from '../routes';
+import Members from '../assets/data/Members.json';
 
 function Logo() {
   return (
@@ -33,24 +34,13 @@ function Logo() {
       <div className="mt-6 text-sm text-[#FFFFFF] hidden md:block">
         <h5 className="font-bold mb-1">Our Team</h5>
         <ul className="list-none mb-0">
-          <li>
-            <a href="#!">Member</a>
-          </li>
-          <li>
-            <a href="#!">Member</a>
-          </li>
-          <li>
-            <a href="#!">Member</a>
-          </li>
-          <li>
-            <a href="#!">Member</a>
-          </li>
-          <li>
-            <a href="#!">Member</a>
-          </li>
-          <li>
-            <a href="#!">Member</a>
-          </li>
+          {Members.map((Member) => (
+            <li>
+              <a href={Member.link} target="_blank" rel="noreferrer">
+                {Member.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
