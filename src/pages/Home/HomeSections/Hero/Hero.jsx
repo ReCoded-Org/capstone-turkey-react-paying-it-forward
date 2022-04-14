@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-// import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from 'react-icons/ai';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import donate from '../../../../assets/Home/donate.svg';
 import request from '../../../../assets/Home/request.svg';
 
@@ -80,13 +80,17 @@ function Hero() {
           onClick={handleOnPrevClick}
           type="button"
           aria-label="left"
-        />
+        >
+          <IoIosArrowBack size={30} />
+        </button>
         <button
           className="bg-white text-black p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition"
           onClick={handleOnNextClick}
           type="button"
           aria-label="right"
-        />
+        >
+          <IoIosArrowForward size={30} />
+        </button>
       </div>
     </div>
   );

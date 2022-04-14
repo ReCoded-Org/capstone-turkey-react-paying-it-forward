@@ -1,60 +1,71 @@
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-// import { Typography } from '@mui/material';
 
 function Team() {
-  const MemberNames = [
+  const memebers = [
     {
-      avatar: 'khadija',
-      name: 'khadija hawa',
+      name: 'Khadija',
+      department: 'Web Devlelopment',
+      // image: Khadija,
+      // facebook: facebook,
+      // twitter: twitter,
     },
     {
-      avatar: 'kutay',
-      name: 'Kutay Kağan Özen',
+      name: 'Kutay',
+      department: 'Web Devlelopment',
+      // image: Kutay,
+      // facebook: facebook,
+      // twitter: twitter,
     },
     {
-      avatar: 'Şebnem',
       name: 'Şebnem',
+      department: 'Web Devlelopment',
+      // image: Şebnem,
+      // facebook: facebook,
+      // twitter: twitter,
     },
     {
-      avatar: 'Abuobaida',
-      name: 'Abuobaida Abdi',
+      name: 'Abuobaida',
+      department: 'Web Devlelopment',
+      // image: Abuobaida,
+      // facebook: facebook,
+      // twitter: twitter,
     },
     {
-      avatar: 'Göksu',
-      name: 'Göksu Alkan',
+      name: 'Göksu',
+      department: 'Web Devlelopment',
+      // image: Göksu,
+      // facebook: facebook,
+      // twitter: twitter,
     },
     {
-      avatar: 'Mustafa',
-      name: 'Mustafa Durmaz',
+      name: 'Mustafa',
+      department: 'Web Devlelopment',
+      // image: Mustafa,
+      // facebook: facebook,
+      // twitter: twitter,
     },
   ];
 
   return (
-    <div className="h-[90%] py-6 ">
+    <div className="py-8">
       <div>
         <h1 className="mb-12 text-4xl font-bold">The Team</h1>
       </div>
       <div>
-        <Stack
-          direction="row"
-          justifyContent="center"
-          spacing={12}
-          className=" mt-14"
-        >
-          {MemberNames.map((person) => {
+        <div className="grid md:grid-cols-6 gap-3 mt-14 grid-cols-2 ml-12 sm:gap-0">
+          {memebers.map((person) => {
             return (
-              <div className="">
+              <div className=" ">
                 <Avatar
                   //   alt={}
                   src={person.avatar}
-                  className=" object-fit mb-9 mx-8"
+                  className="my-4 lg:ml-12 xl:ml-20 md:ml-6 sm:mr-8"
                 />
                 <h2>{person.name}</h2>
               </div>
             );
           })}
-        </Stack>
+        </div>
       </div>
     </div>
   );
