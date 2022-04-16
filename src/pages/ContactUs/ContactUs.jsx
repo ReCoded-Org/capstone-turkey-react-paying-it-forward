@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import contactus from '../assets/images/contactus.svg';
-import sendEmail from '../utils/sendEmail';
+import contactus from '../../assets/images/contactus.svg';
+import sendEmail from '../../utils/sendEmail';
 
 function Contactus() {
   const modelRef = useRef();
