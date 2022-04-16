@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function ItemCard({ data }) {
+
+  const onRequestDonatedItem = () => {
+    // Todo I wait the answer from the Back-end team for my question
+  }
+
   return (
     <div className="flex w-[300px] flex-col space-y-3 rounded-md bg-[#ECF1F8] p-4 justify-center mb-3">
       <Link to={`donated/${data._id}`}>
@@ -117,6 +122,7 @@ function ItemCard({ data }) {
           <button
             className="rounded-full bg-[#FF7338] py-2 px-6 text-sm text-white"
             type="button"
+            onClick={onRequestDonatedItem}
           >
             Make Request
           </button>
