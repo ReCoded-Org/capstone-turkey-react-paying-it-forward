@@ -2,7 +2,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
-import { Login } from '../../routes';
+import { LOG_IN } from '../../routes';
 import logoc from '../../assets/images/logoc.png';
 import Light from '../../assets/images/Light.png';
 
@@ -25,16 +25,16 @@ export default function Signup() {
         }, 1000);
       }}
     >
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="grid grid-cols-2 :grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-          <div className="w-full xl:w-3/4 lg:w-11/12 h-full flex">
+      <div className="min-h-screen flex items-center justify-center md:items-center sm:items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:items-center">
+          <div className="w-full xl:w-3/4 lg:w-11/12 h-full flex sm:items-center">
             <figure className=" bg-white">
-              <div className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1">
+              <div className="w-full max-w-md sm:items-center rounded-lg  border-primaryBorder shadow-default py-10 px-1">
                 <blockquote className="text-2xl font-medium text-center">
                   {}
                 </blockquote>
                 <img
-                  className="w-[109px] h-[95px] m-[-25px]"
+                  className="w-[109px] h-[95px] m-[-25px] mx-[20px]"
                   src={logoc}
                   alt="Logo"
                 />
@@ -175,7 +175,7 @@ export default function Signup() {
                       <p className="text-sm ml-3">
                         I accept
                         <Link
-                          to={Login}
+                          to={LOG_IN}
                           className="text-black font-bold hover:underline text-sm font-small"
                         >
                           {'    '}
@@ -194,7 +194,7 @@ export default function Signup() {
                       <p className="text-sm">
                         Already have an account?
                         <Link
-                          to={Login}
+                          to={LOG_IN}
                           className="text-black hover:underline font-bold"
                         >
                           {'    '}

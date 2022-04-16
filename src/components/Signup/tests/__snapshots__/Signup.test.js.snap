@@ -2,26 +2,26 @@
 
 exports[`Signup matches 1`] = `
 <div
-  className="min-h-screen flex items-center justify-center"
+  className="min-h-screen flex items-center justify-center md:items-center sm:items-center"
 >
   <div
-    className="grid grid-cols-2 :grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4"
+    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:items-center"
   >
     <div
-      className="w-full xl:w-3/4 lg:w-11/12 h-full flex"
+      className="w-full xl:w-3/4 lg:w-11/12 h-full flex sm:items-center"
     >
       <figure
         className=" bg-white"
       >
         <div
-          className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1"
+          className="w-full max-w-md sm:items-center rounded-lg  border-primaryBorder shadow-default py-10 px-1"
         >
           <blockquote
             className="text-2xl font-medium text-center"
           />
           <img
             alt="Logo"
-            className="w-[109px] h-[95px] m-[-25px]"
+            className="w-[109px] h-[95px] m-[-25px] mx-[20px]"
             src="logoc.png"
           />
           <div
@@ -155,7 +155,7 @@ exports[`Signup matches 1`] = `
                   I accept
                   <a
                     className="text-black font-bold hover:underline text-sm font-small"
-                    href="/Login"
+                    href="/login"
                     onClick={[Function]}
                   >
                         
@@ -179,7 +179,7 @@ exports[`Signup matches 1`] = `
                   Already have an account?
                   <a
                     className="text-black hover:underline font-bold"
-                    href="/Login"
+                    href="/login"
                     onClick={[Function]}
                   >
                         

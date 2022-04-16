@@ -2,7 +2,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
-import { Signup } from '../../routes';
+import { SIGN_UP } from '../../routes';
 import logoc from '../../assets/images/logoc.png';
 import Light from '../../assets/images/Light.png';
 
@@ -25,20 +25,20 @@ export default function Login() {
         }, 1000);
       }}
     >
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="grid grid-cols-2 :grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      <div className="min-h-screen flex items-center justify-center sm:items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:items-center">
           <div className="w-full xl:w-3/4 lg:w-11/12 h-full flex">
             <figure className=" bg-white">
-              <div className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1">
-                <blockquote className="text-2xl font-medium text-center">
+              <div className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1 sm:items-center">
+                <blockquote className="text-2xl sm:items-center font-medium text-center">
                   {}
                 </blockquote>
                 <img
-                  className="w-[109px] h-[95px] m-[-25x]"
+                  className="w-[109px] h-[95px] m-[-25x] mx-[20px]"
                   src={logoc}
                   alt="Logo"
                 />
-                <div className="text-primary m-6">
+                <div className="text-primary m-6 sm:items-center">
                   <div className="flex items-center mt-3 ">
                     <h1 className="text-left text-6xl font-bold text-primary mx-[40px] mt-16 mb-0">
                       Log In
@@ -168,7 +168,7 @@ export default function Login() {
                       <p className="text-sm">
                         Do not have an account yet?
                         <Link
-                          to={Signup}
+                          to={SIGN_UP}
                           className="text-black hover:underline font-bold"
                         >
                           {'    '}
@@ -181,8 +181,8 @@ export default function Login() {
               </div>
             </figure>
           </div>
-          <div className="bg-[#ff7338] text-green-500 hidden md:block text-lg font-bold text-center p-10 rounded-lg">
-            <img className="max-w-sm" src={Light} alt="Light" />
+          <div className="bg-[#ff7338] text-green-500 hidden md:block text-lg sm:items-center font-bold text-center p-10 rounded-lg">
+            <img className="max-w-sm sm:items-center" src={Light} alt="Light" />
           </div>
         </div>
       </div>

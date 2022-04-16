@@ -2,10 +2,10 @@
 
 exports[`Login Component matches 1`] = `
 <div
-  className="min-h-screen flex items-center justify-center"
+  className="min-h-screen flex items-center justify-center sm:items-center"
 >
   <div
-    className="grid grid-cols-2 :grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4"
+    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:items-center"
   >
     <div
       className="w-full xl:w-3/4 lg:w-11/12 h-full flex"
@@ -14,18 +14,18 @@ exports[`Login Component matches 1`] = `
         className=" bg-white"
       >
         <div
-          className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1"
+          className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1 sm:items-center"
         >
           <blockquote
-            className="text-2xl font-medium text-center"
+            className="text-2xl sm:items-center font-medium text-center"
           />
           <img
             alt="Logo"
-            className="w-[109px] h-[95px] m-[-25x]"
+            className="w-[109px] h-[95px] m-[-25x] mx-[20px]"
             src="logoc.png"
           />
           <div
-            className="text-primary m-6"
+            className="text-primary m-6 sm:items-center"
           >
             <div
               className="flex items-center mt-3 "
@@ -152,7 +152,7 @@ exports[`Login Component matches 1`] = `
                   Do not have an account yet?
                   <a
                     className="text-black hover:underline font-bold"
-                    href="/Signup"
+                    href="/signup"
                     onClick={[Function]}
                   >
                         
@@ -166,11 +166,11 @@ exports[`Login Component matches 1`] = `
       </figure>
     </div>
     <div
-      className="bg-[#ff7338] text-green-500 hidden md:block text-lg font-bold text-center p-10 rounded-lg"
+      className="bg-[#ff7338] text-green-500 hidden md:block text-lg sm:items-center font-bold text-center p-10 rounded-lg"
     >
       <img
         alt="Light"
-        className="max-w-sm"
+        className="max-w-sm sm:items-center"
         src="Light.png"
       />
     </div>

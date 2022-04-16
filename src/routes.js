@@ -6,5 +6,3 @@ export const LOG_IN = '/login';
 export const LOG_OUT = '/logout';
 export const DONATION = '/donation';
 export const REQUEST = '/request';
-export const Login = '/Login';
-export const Signup = '/Signup';
