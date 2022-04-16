@@ -17,12 +17,14 @@ function DonatedList({ searchParams }) {
       dispatch(getItemsByFilter(searchParams));
   }, [searchParams]);
 
-  console.log(status);
 
   if (status === "loading")
     return <h1 className="text-2xl text-white">Loading...</h1>;
   else if (status === "failed")
     return <h1 className="text-2xl font-bold my-8">{error}</h1>;
+
+
+  console.log(items);
 
 
   return (

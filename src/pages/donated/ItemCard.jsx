@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
+
 function ItemCard({ data }) {
   return (
     <div className="flex w-[300px] flex-col space-y-3 rounded-md bg-[#ECF1F8] p-4 justify-center mb-3">
-      <img
-        className=""
-        alt="Glle"
-        src="https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg"
-      />
+      <Link to={`donated/${data._id}`}>
+        <img
+          className=""
+          alt={data.name}
+          src="https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg"
+        />
+      </Link>
       <div className="flex flex-col space-y-2">
         <div className="flex items-center">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
@@ -52,7 +56,7 @@ function ItemCard({ data }) {
           </svg>
           <div className="flex flex-col ml-2">
             <span className="text-xs text-left">
-              {`${data.owner.firstName} ${data.owner.lastName}`}
+              {data.owner ? `${data.owner.firstName} ${data.owner.lastName}` : "Unknown"}
             </span>
             <span className="text-xs">
               <svg
