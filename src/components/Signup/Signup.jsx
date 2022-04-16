@@ -198,7 +198,7 @@ export default function Signup() {
                           className="text-black hover:underline font-bold"
                         >
                           {'    '}
-                          Log In!
+                          Sign In!
                         </Link>
                       </p>
                     </div>

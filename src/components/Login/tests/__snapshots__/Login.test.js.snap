@@ -33,7 +33,7 @@ exports[`Login Component matches 1`] = `
               <h1
                 className="text-left text-6xl font-bold text-primary mx-[40px] mt-16 mb-0"
               >
-                Log In
+                Sign In
               </h1>
             </div>
             <form

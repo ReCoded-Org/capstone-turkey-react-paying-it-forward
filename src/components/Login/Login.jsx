@@ -41,7 +41,7 @@ export default function Login() {
                 <div className="text-primary m-6 sm:items-center">
                   <div className="flex items-center mt-3 ">
                     <h1 className="text-left text-6xl font-bold text-primary mx-[40px] mt-16 mb-0">
-                      Log In
+                      Sign In
                     </h1>
                   </div>
                   <Form className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6">

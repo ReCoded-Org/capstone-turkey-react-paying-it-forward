@@ -183,7 +183,7 @@ exports[`Signup matches 1`] = `
                     onClick={[Function]}
                   >
                         
-                    Log In!
+                    Sign In!
                   </a>
                 </p>
               </div>
