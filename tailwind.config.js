@@ -7,7 +7,6 @@ module.exports = {
       },
       screens: {
         mdd: '850px',
-        ls: '10px',
       },
     },
   },
