@@ -141,7 +141,7 @@ exports[`Login Component matches 1`] = `
                 type="submit"
                 value="Login"
               >
-                Log In
+                Sign In
               </button>
               <div
                 className="mt-4 text-center"
