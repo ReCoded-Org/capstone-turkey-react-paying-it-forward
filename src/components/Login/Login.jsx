@@ -162,7 +162,7 @@ export default function Login() {
                       className="bg-[#ff4848] text-md hover:bg-[#FF7338] w-80 h-12 text-white font-bold justify-center border border-blue rounded-2xl focus:outline-none focus:border-[#FF7338]"
                       value="Login"
                     >
-                      Log In
+                      Sign In
                     </button>
                     <div className="mt-4 text-center">
                       <p className="text-sm">
