@@ -1,11 +1,8 @@
 import { render, screen, fireEvent, wait } from '@testing-library/react';
 import ContactUs from '../ContactUs';
 
-beforeEach(() => {
-  render(<ContactUs />);
-});
-
 test('Check entering in the inputs fields', async () => {
+  render(<ContactUs />);
 
   await wait(() => {
     fireEvent.click(screen.queryByText(/send message/i));
@@ -13,7 +10,9 @@ test('Check entering in the inputs fields', async () => {
 
   expect(screen.getByText(/name is required/i)).toBeInTheDocument();
   expect(screen.getByText(/email is required/i)).toBeInTheDocument();
-  expect(screen.getByText(/please add a message at least one character long/i)).toBeInTheDocument();
+  expect(
+    screen.getByText(/please add a message at least one character long/i),
+  ).toBeInTheDocument();
 
   await wait(() => {
     fireEvent.change(screen.queryByLabelText(/full name/i), {
