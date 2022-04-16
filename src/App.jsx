@@ -1,15 +1,15 @@
 import { BrowserRouter } from 'react-router-dom';
 
 import './App.css';
-import Navbar from './components/navbar/Navbar';
-import Faq from './pages/FAQ/Faq';
+// import Faq from './pages/FAQ/Faq';
+// import ContactUs from './pages/ContactUs/ContactUs';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar isLogin />
-        <Faq />
       </BrowserRouter>
     </div>
   );
