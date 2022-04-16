@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function ItemCard({ data }) {
   return (
@@ -56,7 +57,9 @@ function ItemCard({ data }) {
           </svg>
           <div className="flex flex-col ml-2">
             <span className="text-xs text-left">
-              {data.owner ? `${data.owner.firstName} ${data.owner.lastName}` : "Unknown"}
+              {data.owner
+                ? `${data.owner.firstName} ${data.owner.lastName}`
+                : 'Unknown'}
             </span>
             <span className="text-xs">
               <svg
@@ -122,5 +125,14 @@ function ItemCard({ data }) {
     </div>
   );
 }
+
+ItemCard.propTypes = {
+  data: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    owner: PropTypes.objectOf(PropTypes.object),
+    count: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default ItemCard;
