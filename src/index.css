@@ -2,23 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
 
 .dropdown:hover .dropdown-menu {
-  display: block;
+	display: block;
 }
 
 .search-container {
@@ -35,7 +34,7 @@ code {
 }
 
 
-.search:focus + .searchbutton {
+.search:focus+.searchbutton {
 	transition-duration: 0.4s;
 	-moz-transition-duration: 0.4s;
 	-webkit-transition-duration: 0.4s;
@@ -46,7 +45,7 @@ code {
 
 .search {
 	position: absolute;
-  background-color: white;
+	background-color: white;
 	outline: none;
 	border: none;
 	padding: 0;
@@ -65,9 +64,9 @@ code {
 }
 
 .expandright {
-  top: 0px;
+	top: 0px;
 	right: 49px;
-  color: grey;
+	color: grey;
 }
 
 .expandright:focus {
