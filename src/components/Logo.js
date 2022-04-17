@@ -35,8 +35,8 @@ function Logo() {
         <h5 className="font-bold mb-1">Our Team</h5>
         <ul className="list-none mb-0">
           {Members.map((Member) => (
-            <li>
-              <a href={Member.link} target="_blank" rel="noreferrer">
+            <li key={Member.name}>
+              <a  href={Member.link} target="_blank" rel="noreferrer">
                 {Member.name}
               </a>
             </li>

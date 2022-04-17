@@ -6,11 +6,11 @@ export default function Footer() {
   return (
     <footer className="bg-[#FF7338] text-left">
       <div className="container p-6 ml-[30px]">
-        <div className="grid lg:grid-cols-2 md:grid-cols-2 p-4 ">
+        <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 p-4 ">
           <div className="col-5">
             <Logo />
           </div>
-          <div className="ml-[35px] h-[50px] w-[500px] hidden md:block col-3">
+          <div className="ml-[35px] h-[50px] w-[500px] col-3  sm:text-left">
             <SubscriptionForm />
           </div>
         </div>
