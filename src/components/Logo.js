@@ -31,12 +31,12 @@ function Logo() {
         </ul>
       </div>
 
-      <div className="mt-6 text-sm text-[#FFFFFF] hidden md:block">
+      <div className="mt-6 text-sm text-[#FFFFFF] hidden md:block md:ml-[10px]">
         <h5 className="font-bold mb-1">Our Team</h5>
         <ul className="list-none mb-0">
           {Members.map((Member) => (
             <li key={Member.name}>
-              <a  href={Member.link} target="_blank" rel="noreferrer">
+              <a href={Member.link} target="_blank" rel="noreferrer">
                 {Member.name}
               </a>
             </li>
@@ -44,7 +44,7 @@ function Logo() {
         </ul>
       </div>
 
-      <div className="mt-6 text-sm text-[#FFFFFF] hidden md:block">
+      <div className="mt-6 text-sm text-[#FFFFFF] hidden md:block md:ml-[25px]">
         <h5 className="font-bold mb-1">Resources</h5>
         <ul className="list-none mb-0">
           <li>

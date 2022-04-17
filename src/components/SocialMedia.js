@@ -5,7 +5,7 @@ function SocialMedia() {
       <span className="flex-shrink mx-4 border-[#FFFF] mt-[3px]">
         <div className="container pt-9 text-[#FFFF] mb-[2px]">
           <div className="flex justify-center">
-            <p className="mr-6  text-sm mb-[35px] hidden md:block">
+            <p className="mr-6  text-sm mb-[35px] md:block">
               ©payingitforward2022
             </p>
             <a href="#!" className="mr-4 ml-6">

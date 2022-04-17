@@ -2,12 +2,12 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string().email('Please add an valid email'),
+  email: Yup.string().email('Please add a valid email'),
 });
 
 function SubscriptionForm() {
   return (
-    <div className="sm:mb-[1000px] lg:mt-[50px] ml-[100px] px-3 flex flex-col">
+    <div className="sm:mb-[1000px] md:mt-[100px] lg:mt-[50px] ml-[100px] px-3 flex flex-col">
       <h1 className="text-[#FFFF] mb-2 text-md  ml-[15px]">
         Subscribe to our Newsletter
       </h1>
@@ -26,7 +26,7 @@ function SubscriptionForm() {
                 className="bg-[#D8F4EC] text-sm text-center text-[#FF7338] w-[200px] h-[45px] rounded-l-lg font-small"
                 name="email"
                 type="email"
-                placeholder="Enter Your Email"
+                placeholder="Enter Your Email Address"
                 data-testid="subscription"
               />
               <button
