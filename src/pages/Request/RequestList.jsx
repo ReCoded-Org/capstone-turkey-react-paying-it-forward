@@ -23,8 +23,6 @@ function RequestList({ searchParams, handleRespone }) {
   if (status === 'failed')
     return <h1 className="text-2xl font-bold my-8">{error}</h1>;
 
-  console.log(items);
-
   return (
     <div className="grid grid-cols-1 xl:grid-cols-3 justify-items-center w-5/6 mx-auto lg:grid-cols-3 md:grid-cols-2">
       {itemList.length === 0 ? (
