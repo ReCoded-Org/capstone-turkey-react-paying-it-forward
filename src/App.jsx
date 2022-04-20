@@ -2,6 +2,7 @@ import './App.css';
 
 import routes from './routes';
 import { BrowserRouter} from 'react-router-dom';
+import Footer from './components/Footer';
 
 
 function App() {

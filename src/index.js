@@ -4,12 +4,13 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import * as serviceWorker from './serviceWorker';
+
 import Footer from './components/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Footer />
+    <Footer />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
