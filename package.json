@@ -3,25 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/material": "^5.6.1",
     "@reduxjs/toolkit": "^1.5.1",
-    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "email-validator": "^2.0.4",
+    "emailjs-com": "^3.2.0",
+    "formik": "^2.2.9",
+    "formik-field": "^1.6.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
     "react-redux": "^7.2.3",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
-    "react-slick": "^0.28.1",
-    "slick-carousel": "^1.8.1",
-    "tw-elements": "^1.0.0-alpha12"
+    "tw-elements": "^1.0.0-alpha12",
+    "react-test-renderer": "^17.0.2",
+    "styled-components": "^5.3.5",
+    "yup": "^0.32.11"
   },
   "scripts": {
+    "server": "webpack-dashboard -- webpack-dev-server --inline --port 8080",
+    "webdriver-update": "webdriver-manager update",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,6 +48,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@types/core-js": "^0.9.0",
     "autoprefixer": "^10.4.4",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -56,11 +61,18 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.0",
+    "nodemon": "^2.0.15",
     "postcss": "^8.4.12",
     "prettier": "^2.6.0",
-    "tailwindcss": "^3.0.23"
+    "redux-mock-store": "^1.5.4",
+    "tailwindcss": "^3.0.23",
+    "webpack-cli": "^4.9.2"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
-  }
+  },
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ]
 }

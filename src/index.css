@@ -57,17 +57,17 @@ code {
   -o-transition-duration: 0.4s;
 }
 
-/* .search:focus {
-	width: 363px;
-	padding: 0 16px 0 0;
-} */
+.search:focus {
+  width: 363px;
+  padding: 0 16px 0 0;
+}
 
 .expandright {
   top: 0px;
-  /* right: 49px; */
+  right: 49px;
   color: grey;
 }
 
 .expandright:focus {
-  /* padding: 0 12px 0 16px; */
+  padding: 0 12px 0 16px;
 }
