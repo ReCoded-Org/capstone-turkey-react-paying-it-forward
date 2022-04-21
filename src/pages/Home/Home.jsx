@@ -1,8 +1,8 @@
-import Hero from './HomeSections/Hero/Hero';
-import Donators from './HomeSections/Donators/Donators';
-import Testimonial from './HomeSections/Testimonial/Testimonial';
-import Team from './HomeSections/Team/Team';
-import HowItWorks from './HomeSections/HowItWorks/HowItWorks';
+import Donators from '../../components/HomeSections/Donators/Donators';
+import Hero from '../../components/HomeSections/Hero/Hero';
+import HowItWorks from '../../components/HomeSections/HowItWorks/HowItWorks';
+import Testimonial from '../../components/HomeSections/Testimonial/Testimonial';
+import Team from '../../components/HomeSections/Team/Team';
 
 function Home() {
   return (

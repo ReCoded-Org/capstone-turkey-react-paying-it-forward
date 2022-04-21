@@ -1,6 +1,6 @@
-import speechBubbleIcon from '../../../../assets/Home/speechBubbleIcon.svg';
-import donationIcon from '../../../../assets/Home/donationIcon.svg';
-import requestIcon from '../../../../assets/Home/requestIcon.svg';
+import speechBubbleIcon from '../../../assets/Home/speechBubbleIcon.svg';
+import donationIcon from '../../../assets/Home/donationIcon.svg';
+import requestIcon from '../../../assets/Home/requestIcon.svg';
 
 function HowItWorks() {
   return (
