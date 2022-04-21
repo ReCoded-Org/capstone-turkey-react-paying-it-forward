@@ -10,7 +10,6 @@ function DonatedList({ searchParams, handleRespone }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(searchParams);
     if (searchParams === null || searchParams === 'All')
       dispatch(getAvailableItems());
     else dispatch(getItemsByFilter(searchParams));
@@ -20,8 +19,6 @@ function DonatedList({ searchParams, handleRespone }) {
     return <h1 className="text-2xl text-white">Loading...</h1>;
   if (status === 'failed')
     return <h1 className="text-2xl font-bold my-8">{error}</h1>;
-
-  console.log(items);
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-3 justify-items-center w-5/6 mx-auto lg:grid-cols-3 md:grid-cols-2">

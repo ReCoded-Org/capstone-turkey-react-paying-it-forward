@@ -187,7 +187,10 @@ ItemCard.propTypes = {
   data: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    owner: PropTypes.objectOf(PropTypes.object),
+    owner: PropTypes.shape({
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+    }),
     count: PropTypes.number.isRequired,
   }).isRequired,
   onRespone: PropTypes.func.isRequired,
