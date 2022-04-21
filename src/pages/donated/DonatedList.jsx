@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 import { getAvailableItems, getItemsByFilter } from './donatedSlice';
 
-function DonatedList({ searchParams }) {
+function DonatedList({ searchParams, handleRespone }) {
   const { status, items, error } = useSelector((state) => state.donated);
   const dispatch = useDispatch();
 
@@ -14,7 +14,7 @@ function DonatedList({ searchParams }) {
     if (searchParams === null || searchParams === 'All')
       dispatch(getAvailableItems());
     else dispatch(getItemsByFilter(searchParams));
-  }, [searchParams]);
+  }, [searchParams, dispatch]);
 
   if (status === 'loading')
     return <h1 className="text-2xl text-white">Loading...</h1>;
@@ -26,14 +26,17 @@ function DonatedList({ searchParams }) {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-3 justify-items-center w-5/6 mx-auto lg:grid-cols-3 md:grid-cols-2">
       {items.map((item) => {
-        return <ItemCard key={item._id} data={item} />;
+        return (
+          <ItemCard key={item._id} data={item} onRespone={handleRespone} />
+        );
       })}
     </div>
   );
 }
 
 DonatedList.propTypes = {
-  searchParams: PropTypes.func.isRequired,
+  searchParams: PropTypes.string.isRequired,
+  handleRespone: PropTypes.func.isRequired,
 };
 
 export default DonatedList;

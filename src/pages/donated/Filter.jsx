@@ -12,14 +12,11 @@ function Filter({ filterBy, searchParams }) {
 
   const typeList = type.map((tp) => {
     return (
-      <li>
+      <li key={tp}>
         <button
-          key={tp}
           type="button"
           className={`${
-            tp === searchParams.get('filter')
-              ? 'bg-[#F05A28]'
-              : 'bg-[#90B176] cursor-pointer'
+            tp === searchParams ? 'bg-[#F05A28]' : 'bg-[#90B176] cursor-pointer'
           } px-5 py-1 rounded-full my-2`}
           onClick={() => handleFilter(tp)}
           onKeyDown={() => handleFilter(tp)}
@@ -57,8 +54,8 @@ function Filter({ filterBy, searchParams }) {
 }
 
 Filter.propTypes = {
-  filterBy: PropTypes.string.isRequired,
-  searchParams: PropTypes.func.isRequired,
+  filterBy: PropTypes.func.isRequired,
+  searchParams: PropTypes.string.isRequired,
 };
 
 export default Filter;

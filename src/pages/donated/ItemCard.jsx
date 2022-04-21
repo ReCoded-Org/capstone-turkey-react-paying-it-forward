@@ -1,11 +1,40 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-function ItemCard({ data }) {
+function ItemCard({ data, onRespone }) {
+  const [isLoading, setLoading] = useState(false);
 
   const onRequestDonatedItem = () => {
-    // Todo I wait the answer from the Back-end team for my question
-  }
+    setLoading(true);
+
+    fetch(`${process.env.REACT_APP_API_URI}/items/donate`, {
+      headers: {
+        accept: 'application/json',
+      },
+      body: {
+        donateItemId: data._id,
+        borrowerId: data.owner,
+      },
+      method: 'PUT',
+    })
+      .then((resp) => {
+        if (!resp.ok) return Promise.reject(resp);
+        return resp.json();
+      })
+      .then(() => {
+        onRespone({
+          status: 'success',
+          message: 'Thank you for helping people',
+        });
+      })
+      .catch((error) => {
+        error.json().then((e) => onRespone({ status: 'failed', ...e }));
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="flex w-[300px] flex-col space-y-3 rounded-md bg-[#ECF1F8] p-4 justify-center mb-3">
@@ -120,10 +149,32 @@ function ItemCard({ data }) {
             </span>
           </div>
           <button
-            className="rounded-full bg-[#FF7338] py-2 px-6 text-sm text-white"
+            className="inline-flex items-center rounded-full bg-[#FF7338] py-2 px-6 text-sm text-white"
             type="button"
             onClick={onRequestDonatedItem}
           >
+            {isLoading && (
+              <svg
+                className="animate-spin mr-2 h-4 w-4 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                />
+              </svg>
+            )}
             Make Request
           </button>
         </div>
@@ -139,6 +190,7 @@ ItemCard.propTypes = {
     owner: PropTypes.objectOf(PropTypes.object),
     count: PropTypes.number.isRequired,
   }).isRequired,
+  onRespone: PropTypes.func.isRequired,
 };
 
 export default ItemCard;
