@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+=======
+>>>>>>> 7d22d1b74768628220f3c902cf0606ebd16abb6f
 /*
 ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
 */
@@ -464,6 +481,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+<<<<<<< HEAD
+}
+=======
 }
 
 .mx-6 {
@@ -611,3 +631,4 @@ Ensure the default browser behavior of the `hidden` attribute.
     text-align: left;
   }
 } 
+>>>>>>> 7d22d1b74768628220f3c902cf0606ebd16abb6f

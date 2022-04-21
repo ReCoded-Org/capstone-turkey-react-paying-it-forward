@@ -16,4 +16,54 @@ code {
     monospace;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 
+.search-container {
+  position: relative;
+}
+
+.mglass {
+  display: inline-block;
+  pointer-events: none;
+}
+
+.search:focus + .searchbutton {
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+}
+
+.search {
+  position: absolute;
+  background-color: white;
+  outline: none;
+  border: none;
+  padding: 0;
+  width: 0;
+  height: 100%;
+  z-index: 10;
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+}
+
+.search:focus {
+  width: 363px;
+  padding: 0 16px 0 0;
+}
+
+.expandright {
+  top: 0px;
+  right: 49px;
+  color: grey;
+}
+
+.expandright:focus {
+  padding: 0 12px 0 16px;
+}

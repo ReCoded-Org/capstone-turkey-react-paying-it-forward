@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, wait } from '@testing-library/react';
-import Footer from '../components/Footer';
-import SubscriptionForm from '../components/SubscriptionForm';
+import Footer from '../components/Footer/Footer';
+import SubscriptionForm from '../components/Footer/SubscriptionForm';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 
@@ -26,8 +26,7 @@ describe('Pass valid email to email input field', () => {
       });
       fireEvent.click(screen.getByTestId('subscriptionButton'));
     });
-
-    expect(screen.getByText('Please add an valid email')).toBeInTheDocument();
+    expect(screen.getByTestId('error')).toBeInTheDocument();
 
     await wait(() => {
       fireEvent.change(screen.getByTestId('subscription'), {

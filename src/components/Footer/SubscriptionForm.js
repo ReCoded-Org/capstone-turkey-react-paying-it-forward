@@ -7,8 +7,8 @@ const SignupSchema = Yup.object().shape({
 
 function SubscriptionForm() {
   return (
-    <div className="sm:mb-[1000px] md:mt-[100px] lg:mt-[50px] ml-[100px] px-3 flex flex-col">
-      <h1 className="text-[#FFFF] mb-2 text-md  ml-[15px]">
+    <div className="md:px-0 md:mt-10 w-full md:block md:mx-2 lg:mr-8 ">
+      <h1 className="text-[#FFFF] mb-2 text-md  ml-[2px]">
         Subscribe to our Newsletter
       </h1>
       <Formik
@@ -20,10 +20,10 @@ function SubscriptionForm() {
         onSubmit={() => {}}
       >
         {({ errors, touched }) => (
-          <Form className="d-flex flex-column">
-            <div className="p-2 ml-[5px]">
+          <Form className="  w-full flex-column lg:mr-0">
+            <div className=" p-0  w-full">
               <Field
-                className="bg-[#D8F4EC] text-sm text-center text-[#FF7338] w-[200px] h-[45px] rounded-l-lg font-small"
+                className="bg-[#D8F4EC] text-[12px]  text-center text-[#FF7338] md:w-[140px] lg:w-[140px] h-[45px] rounded-l-lg font-small"
                 name="email"
                 type="email"
                 placeholder="Enter Your Email Address"
@@ -31,15 +31,15 @@ function SubscriptionForm() {
               />
               <button
                 type="submit"
-                className="text-[#FF7338] bg-[#FFFF] w-[100px] h-[45px] rounded-r-lg font-small"
+                className="text-[#FF7338] bg-[#FFFF] md:w-[85px] lg:w-[90px] h-[46px] rounded-r-lg "
                 data-testid="subscriptionButton"
               >
                 Subscribe
               </button>
             </div>
-            <div className="p-2 ml-[20px]">
+            <div className=" lg:p-2 lg:ml-[20px]">
               {errors.email && touched.email ? (
-                <div>{errors.email}</div>
+                <div data-testid="error">{errors.email}</div>
               ) : (
                 <div id="sub" className="hidden">
                   Subscribed to our service
