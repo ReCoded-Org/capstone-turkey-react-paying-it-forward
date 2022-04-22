@@ -1,35 +1,41 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "jest": true
-    },
-    "extends": [
-       "react-app",
-       "react-app/jest",
-       "airbnb",
-       "plugin:prettier/recommended",
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "prettier"
-    ],
-    "rules": {
-        "quotes":["error","single",{"avoidEscape": true}],
-        "react/jsx-uses-react":["off"],
-        "react/react-in-jsx-scope":["off"],
-        "react/jsx-props-no-spreading":["off"],
-        "jsx-a11y/label-has-associated-control":["off"],
-        "no-param-reassign":["off"],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "testing-library/prefer-screen-queries":["off"],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
-    }
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"jest": true
+	},
+	"extends": [
+		"react-app",
+		"react-app/jest",
+		"airbnb",
+		"plugin:prettier/recommended"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"prettier"
+	],
+	"rules": {
+		"quotes": ["error", "single", {
+			"avoidEscape": true
+		}],
+		"react/jsx-uses-react": ["off"],
+		"react/react-in-jsx-scope": ["off"],
+		"react/jsx-props-no-spreading": ["off"],
+		"jsx-a11y/label-has-associated-control": ["off"],
+		"no-param-reassign": ["off"],
+		"react/jsx-filename-extension": [1, {
+			"extensions": [".js", ".jsx"]
+		}],
+		"testing-library/prefer-screen-queries": ["off"],
+		"import/no-extraneous-dependencies": ["error", {
+			"devDependencies": true
+		}]
+	}
 }
