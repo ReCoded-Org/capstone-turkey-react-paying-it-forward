@@ -15,17 +15,8 @@ import {
 
 function Navbar({ isLogin }) {
   const [lang, setLang] = useState('en');
-  const [search, setSearch] = useState('');
 
   const menu = useRef();
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-  };
-
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
 
   return (
     <nav className="bg-primary">
@@ -261,34 +252,6 @@ function Navbar({ isLogin }) {
                     Sign up
                   </Link>
                 )}
-                <div className="text-white px-3 py-2 rounded-md text-sm font-medium search-container">
-                  <form onSubmit={handleSearch}>
-                    <label className="searchbutton" htmlFor="searchright">
-                      <input
-                        type="search"
-                        className="search expandright"
-                        placeholder="Search"
-                        id="searchright"
-                        onChange={handleChange}
-                        value={search}
-                      />
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M10 2.25C5.71979 2.25 2.25 5.71979 2.25 10C2.25 14.2802 5.71979 17.75 10 17.75C11.87 17.75 13.5853 17.0877 14.9242 15.9848L20.4697 21.5303L20.5538 21.6029C20.8474 21.8208 21.2641 21.7966 21.5303 21.5303C21.8232 21.2374 21.8232 20.7626 21.5303 20.4697L15.9848 14.9242C17.0877 13.5853 17.75 11.87 17.75 10C17.75 5.71979 14.2802 2.25 10 2.25ZM10 3.75C13.4518 3.75 16.25 6.54822 16.25 10C16.25 13.4518 13.4518 16.25 10 16.25C6.54822 16.25 3.75 13.4518 3.75 10C3.75 6.54822 6.54822 3.75 10 3.75Z"
-                          fill="#FFFBFB"
-                        />
-                      </svg>
-                    </label>
-                  </form>
-                </div>
 
                 {isLogin && (
                   <div className="dropdown inline-block relative">
