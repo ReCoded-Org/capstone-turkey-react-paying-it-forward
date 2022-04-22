@@ -10,7 +10,7 @@ export default function Footer() {
     <div className="bg-[#FF7338] md:items-center md:justify-center lg:px-12 lg:py-6  items-start justify-center flex flex-col w-full ">
       <div className=" flex md:justify-center md:items-center lg:justify-start w-full  lg:w-full ">
         <Logo />
-        <div className="lg:flex xs:hidden sm:hidden md:hidden">
+        <div className="lg:flex xs:hidden sm:hidden md:flex">
           <FooterHomeLinks />
           <FooterTeamLinks />
           <FooterResourcesLinks />

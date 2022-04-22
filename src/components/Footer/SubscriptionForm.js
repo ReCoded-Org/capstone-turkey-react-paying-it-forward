@@ -21,7 +21,7 @@ function SubscriptionForm() {
       >
         {({ errors, touched }) => (
           <Form className="  w-full flex-column lg:mr-0">
-            <div className=" p-0  w-full">
+            <div className=" flex">
               <Field
                 className="bg-[#D8F4EC] text-[12px]  text-center text-[#FF7338] md:w-[140px] lg:w-[140px] h-[45px] rounded-l-lg font-small"
                 name="email"
@@ -31,7 +31,7 @@ function SubscriptionForm() {
               />
               <button
                 type="submit"
-                className="text-[#FF7338] bg-[#FFFF] md:w-[85px] lg:w-[90px] h-[46px] rounded-r-lg "
+                className="text-[#FF7338] bg-[#FFFF] md:w-[85px] lg:w-[90px] h-[45px] rounded-r-lg"
                 data-testid="subscriptionButton"
               >
                 Subscribe
