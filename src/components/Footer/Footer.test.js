@@ -1,8 +1,8 @@
+import { BrowserRouter } from 'react-router-dom';
 import { render, screen, fireEvent, wait } from '@testing-library/react';
+
 import Footer from './Footer';
 import SubscriptionForm from './SubscriptionForm';
-import { BrowserRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
 
 describe('<Footer />', () => {
   test('Subscription field', () => {
@@ -36,10 +36,10 @@ describe('Pass valid email to email input field', () => {
     });
 
     expect(() => screen.getByText('Please add an valid email')).toThrow(
-      'Unable to find an element'
+      'Unable to find an element',
     );
     expect(() => screen.getByText('Required')).toThrow(
-      'Unable to find an element'
+      'Unable to find an element',
     );
   });
 
@@ -56,12 +56,29 @@ describe('Pass valid email to email input field', () => {
     expect(screen.getByText('About Us')).toHaveAttribute('href', '/about-us');
     expect(screen.getByText('QA')).toHaveAttribute('href', '/qa');
 
-    expect(screen.getByText('Kutay Kağan Özen')).toHaveAttribute('href', 'https://github.com/Iseluin');
-    expect(screen.getByText('Abuobaida Abdi')).toHaveAttribute('href', 'https://github.com/androidmini9x');
-    expect(screen.getByText('Göksu Alkan')).toHaveAttribute('href', 'https://github.com/goksu1');
-    expect(screen.getByText('Mustafa Durmaz')).toHaveAttribute('href', 'https://github.com/mustafadurmaz');
-    expect(screen.getByText('Khadija Hawa')).toHaveAttribute('href', 'https://github.com/khadijahawa');
-    expect(screen.getByText('Şebnem Görmüş')).toHaveAttribute('href', 'https://github.com/sebnemgormus');
-
+    expect(screen.getByText('Kutay Kağan Özen')).toHaveAttribute(
+      'href',
+      'https://github.com/Iseluin',
+    );
+    expect(screen.getByText('Abuobaida Abdi')).toHaveAttribute(
+      'href',
+      'https://github.com/androidmini9x',
+    );
+    expect(screen.getByText('Göksu Alkan')).toHaveAttribute(
+      'href',
+      'https://github.com/goksu1',
+    );
+    expect(screen.getByText('Mustafa Durmaz')).toHaveAttribute(
+      'href',
+      'https://github.com/mustafadurmaz',
+    );
+    expect(screen.getByText('Khadija Hawa')).toHaveAttribute(
+      'href',
+      'https://github.com/khadijahawa',
+    );
+    expect(screen.getByText('Şebnem Görmüş')).toHaveAttribute(
+      'href',
+      'https://github.com/sebnemgormus',
+    );
   });
 });

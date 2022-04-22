@@ -1,7 +1,8 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,}',
-  './node_modules/tw-elements/dist/js/**/*.js'
-],
+  content: [
+    './src/**/*.{js,jsx,}',
+    './node_modules/tw-elements/dist/js/**/*.js',
+  ],
   theme: {
     screens: {
       xs: '300px',
@@ -19,7 +20,7 @@ module.exports = {
     },
     extend: {},
     colors: {
-      white:'#FFFFFF',
+      white: '#FFFFFF',
       primary: '#FF7338',
       blue: '#1FB6FF',
       pink: '#ff49DB',
