@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'tw-elements';
-import './index.css';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
 
-import Footer from './components/Footer/Footer';
+import './index.css';
+import App from './App';
+/*  eslint-disable no-unused-vars */
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Footer />
-    </Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 );

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, wait } from '@testing-library/react';
-import Footer from '../components/Footer/Footer';
-import SubscriptionForm from '../components/Footer/SubscriptionForm';
+import Footer from './Footer';
+import SubscriptionForm from './SubscriptionForm';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 

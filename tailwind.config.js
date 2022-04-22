@@ -1,10 +1,13 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,}'],
+  content: ['./src/**/*.{js,jsx,}',
+  './node_modules/tw-elements/dist/js/**/*.js'
+],
   theme: {
     screens: {
       xs: '300px',
       sm: '640px',
       md: '768px',
+      mdd: '850px',
       lg: '1024px',
       xl: '1280px',
     },
@@ -16,14 +19,17 @@ module.exports = {
     },
     extend: {},
     colors: {
-      blue: '#1fb6ff',
-      pink: '#ff49db',
+      white:'#FFFFFF',
+      primary: '#FF7338',
+      blue: '#1FB6FF',
+      pink: '#ff49DB',
       orange: '#FF7338',
-      green: '#13ce66',
+      green: '#13CE66',
       'gray-dark': '#273444',
-      gray: '#8492a6',
-      'gray-light': '#d3dce6',
+      gray: '#8492A6',
+      'gray-light': '#D3DCE6',
     },
   },
-  plugins: [],
+  // eslint-disable-next-line global-require
+  plugins: [require('tw-elements/dist/plugin')],
 };
