@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ test('fetch data from API', async () => {
   await store.dispatch(getAvailableItems());
   const { status } = store.getState().donated;
 
-  expect(status === 'succeeded');
+  expect(status).toBe('succeeded');
 });
 
 test('date button', async () => {
@@ -32,7 +32,7 @@ test('date button', async () => {
 
   const divList = await container.querySelectorAll('div.grid > div');
 
-  expect(items[0].name === divList[0].querySelector('img').alt);
+  expect(items[0].name).toBe(divList[0].querySelector('img').alt);
 });
 
 test('filter buttons', async () => {
@@ -48,10 +48,10 @@ test('filter buttons', async () => {
   );
 
   fireEvent.click(screen.queryByText(/Stationery/i));
+  const it = await screen.findAllByText(items[0].name);
 
-  const divList = await container.querySelectorAll('div.grid > div');
-
-  expect(
-    items.filter((e) => e.type === 'Stationery').length === divList.length,
+  const divList = container.querySelectorAll('div.grid > div');
+  expect(items.filter((e) => e.type === 'Stationery').length).toBe(
+    divList.length,
   );
-});
+}, 20000);
