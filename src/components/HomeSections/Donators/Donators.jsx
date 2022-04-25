@@ -6,26 +6,32 @@ const DonatorsData = [
   {
     name: 'donator 1',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
+    id: 1,
   },
   {
     name: 'donator 2',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
+    id: 2,
   },
   {
     name: 'donator 3',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
+    id: 3,
   },
   {
     name: 'donator 4',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
+    id: 4,
   },
   {
     name: 'donator 5',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
+    id: 5,
   },
   {
     name: 'donator 6',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
+    id: 6,
   },
 ];
 function Donators() {
@@ -78,7 +84,7 @@ function Donators() {
       <h1 className=" mb-16 text-xl font-bold">Donators</h1>
       <Slider className="mt-3" {...settings}>
         {DonatorsData.map((Donator) => (
-          <div className="w-full">
+          <div className="w-full" key={Donator.id}>
             <div>
               <img
                 src={Donator.img}

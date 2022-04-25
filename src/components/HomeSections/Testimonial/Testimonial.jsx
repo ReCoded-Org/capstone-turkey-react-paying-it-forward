@@ -9,7 +9,7 @@ const texts = [
 function Testimonial() {
   const settings = {
     infinite: true,
-    speed: 500,
+    speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
     lazyLoad: true,
@@ -56,7 +56,9 @@ function Testimonial() {
       <h1 className="my-12 text-xl font-bold"> Our Testimonial </h1>
       <Slider className="flex gap-6 my-6 mx-3 " {...settings}>
         {texts.map((text) => (
-          <h3 className="sm:gap-4">{text}</h3>
+          <h3 className="sm:gap-4" key={text}>
+            {text}
+          </h3>
         ))}
       </Slider>
     </div>

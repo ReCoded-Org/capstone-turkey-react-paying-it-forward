@@ -52,8 +52,8 @@ function Team() {
       </div>
       <div className="py-12 flex flex-row md:gap-14 flex-wrap items-center justify-center">
         {Memebers.map((person) => (
-          <div className="">
-            <div key={person.id} className=" mt-14 px-8">
+          <div key={person.id}>
+            <div className=" mt-14 px-8">
               <Card {...person} className="p-6" />
             </div>
           </div>
