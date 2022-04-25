@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-
 import donate from '../../../assets/Home/donate.svg';
 import request from '../../../assets/Home/request.svg';
 
@@ -75,9 +74,9 @@ function Hero() {
         </button>
       </div>
 
-      <div className="absolute w-full top-1/2 transform -translate-y-1/2 px-3 flex justify-between items-center">
+      <div className="absolute w-full top-1/2 transform -translate-y-1/2 px-3 flex justify-between items-center invisible md:visible sm:visible">
         <button
-          className="bg-white text-black p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition sm:hidden"
+          className="bg-white text-black p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition"
           onClick={handleOnPrevClick}
           type="button"
           aria-label="left"
@@ -85,7 +84,7 @@ function Hero() {
           <IoIosArrowBack size={30} />
         </button>
         <button
-          className="bg-white text-black p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition sm:hidden"
+          className="bg-white text-black p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition"
           onClick={handleOnNextClick}
           type="button"
           aria-label="right"
