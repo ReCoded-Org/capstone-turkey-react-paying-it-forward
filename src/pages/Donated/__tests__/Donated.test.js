@@ -48,7 +48,8 @@ test('filter buttons', async () => {
   );
 
   fireEvent.click(screen.queryByText(/Stationery/i));
-  await screen.findAllByText(items[0].name);
+
+  expect(await screen.findAllByText(items[0].name)[0]).toBeInTheDocument();
 
   const divList = container.querySelectorAll('div.grid > div');
   expect(items.filter((e) => e.type === 'Stationery').length).toBe(
