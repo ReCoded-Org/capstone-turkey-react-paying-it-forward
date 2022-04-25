@@ -1,10 +1,10 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, wait } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import store from '../../../store';
 import Donated from '../Donated';
-import { getAvailableItems } from '../donatedSlice';
+import { getAvailableItems, getItemsByFilter } from '../donatedSlice';
 
 test('fetch data from API', async () => {
   await store.dispatch(getAvailableItems());
@@ -36,7 +36,7 @@ test('date button', async () => {
 });
 
 test('filter buttons', async () => {
-  await store.dispatch(getAvailableItems());
+  await store.dispatch(getItemsByFilter('Stationery'));
   const { items } = store.getState().donated;
 
   const { container } = render(
@@ -47,12 +47,11 @@ test('filter buttons', async () => {
     </Provider>,
   );
 
-  fireEvent.click(screen.queryByText(/Stationery/i));
+  const divList = await container.querySelectorAll('div.grid > div');
 
-  expect(await screen.findAllByText(items[0].name)[0]).toBeInTheDocument();
-
-  const divList = container.querySelectorAll('div.grid > div');
-  expect(items.filter((e) => e.type === 'Stationery').length).toBe(
-    divList.length,
-  );
+  wait(() => {
+    expect(items.filter((e) => e.type === 'Stationery').length).toBe(
+      divList.length,
+    );
+  });
 }, 20000);
