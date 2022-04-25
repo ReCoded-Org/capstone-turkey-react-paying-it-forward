@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ test('fetch data from API', async () => {
   await store.dispatch(getRequestedItems());
   const { status } = store.getState().requestedItems;
 
-  expect(status === 'succeeded');
+  expect(status).toBe('succeeded');
 });
 
 test('date button', async () => {
@@ -50,7 +50,5 @@ test('filter buttons', async () => {
 
   const divList = await container.querySelectorAll('div.grid > div');
 
-  expect(
-    items.filter((e) => e.type === 'School Books').length === divList.length,
-  );
+  expect(items.filter((e) => e.type === 'School Books').length).toBe(divList.length);
 });

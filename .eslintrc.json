@@ -27,8 +27,11 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "testing-library/prefer-screen-queries":["off"],
     "no-underscore-dangle": "off",
+    "testing-library/no-node-access": "off",
+    "testing-library/no-container": "off",
     "jsx-a11y/label-has-associated-control": ["off"],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
+
 
