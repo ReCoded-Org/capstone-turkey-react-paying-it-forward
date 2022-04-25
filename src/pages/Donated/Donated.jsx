@@ -15,7 +15,7 @@ function Donated() {
     setSearchParams({ filter: p });
   };
 
-  const handleRespone = (resp) => {
+  const handleResponse = (resp) => {
     setMsg(resp.message);
     if (resp.status === 'success') {
       modelRef.current.style.display = 'block';
@@ -37,7 +37,7 @@ function Donated() {
       <Filter filterBy={filterBy} searchParams={searchParams.get('filter')} />
       <DonatedList
         searchParams={searchParams.get('filter')}
-        handleRespone={handleRespone}
+        handleResponse={handleResponse}
       />
       <div
         className="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"

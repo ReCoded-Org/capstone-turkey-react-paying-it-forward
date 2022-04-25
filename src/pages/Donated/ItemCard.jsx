@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-function ItemCard({ data, onRespone }) {
+function ItemCard({ data, onResponse }) {
   const [isLoading, setLoading] = useState(false);
 
   const onRequestDonatedItem = () => {
@@ -23,13 +23,13 @@ function ItemCard({ data, onRespone }) {
         return resp.json();
       })
       .then(() => {
-        onRespone({
+        onResponse({
           status: 'success',
           message: 'Thank you for helping people',
         });
       })
       .catch((error) => {
-        error.json().then((e) => onRespone({ status: 'failed', ...e }));
+        error.json().then((e) => onResponse({ status: 'failed', ...e }));
       })
       .finally(() => {
         setLoading(false);
@@ -193,7 +193,7 @@ ItemCard.propTypes = {
     }),
     count: PropTypes.number.isRequired,
   }).isRequired,
-  onRespone: PropTypes.func.isRequired,
+  onResponse: PropTypes.func.isRequired,
 };
 
 export default ItemCard;

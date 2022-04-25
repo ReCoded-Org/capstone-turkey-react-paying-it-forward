@@ -6,22 +6,24 @@ function Filter({ filterBy, searchParams }) {
   const { type, sortOrder } = useSelector((state) => state.donated);
   const dispatch = useDispatch();
 
-  const handleFilter = (p) => {
-    filterBy(p);
+  const handleFilter = (filterTerm) => {
+    filterBy(filterTerm);
   };
 
-  const typeList = type.map((tp) => {
+  const typeList = type.map((itemType) => {
     return (
-      <li key={tp}>
+      <li key={itemType}>
         <button
           type="button"
           className={`${
-            tp === searchParams ? 'bg-[#F05A28]' : 'bg-[#90B176] cursor-pointer'
+            itemType === searchParams
+              ? 'bg-[#F05A28]'
+              : 'bg-[#90B176] cursor-pointer'
           } px-5 py-1 rounded-full my-2`}
-          onClick={() => handleFilter(tp)}
-          onKeyDown={() => handleFilter(tp)}
+          onClick={() => handleFilter(itemType)}
+          onKeyDown={() => handleFilter(itemType)}
         >
-          {tp}
+          {itemType}
         </button>
       </li>
     );
