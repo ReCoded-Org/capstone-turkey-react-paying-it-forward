@@ -3,25 +3,27 @@ import PropTypes from 'prop-types';
 import { sortByDate } from './requestSlice';
 
 function Filter({ filterBy, searchParams }) {
-  const { type, sortOrder } = useSelector((state) => state.request);
+  const { type, sortOrder } = useSelector((state) => state.requestedItems);
   const dispatch = useDispatch();
 
-  const handleFilter = (p) => {
-    filterBy(p);
+  const handleFilter = (filterTerm) => {
+    filterBy(filterTerm);
   };
 
-  const typeList = type.map((tp) => {
+  const typeList = type.map((itemType) => {
     return (
-      <li key={tp}>
+      <li key={itemType}>
         <button
           type="button"
           className={`${
-            tp === searchParams ? 'bg-[#F05A28]' : 'bg-[#90B176] cursor-pointer'
+            itemType === searchParams
+              ? 'bg-[#F05A28]'
+              : 'bg-[#90B176] cursor-pointer'
           } px-5 py-1 rounded-full my-2`}
-          onClick={() => handleFilter(tp)}
-          onKeyDown={() => handleFilter(tp)}
+          onClick={() => handleFilter(itemType)}
+          onKeyDown={() => handleFilter(itemType)}
         >
-          {tp}
+          {itemType}
         </button>
       </li>
     );
@@ -41,7 +43,9 @@ function Filter({ filterBy, searchParams }) {
         >
           Date
           <svg
-            className="fill-current h-4 w-4"
+            className={`fill-current h-4 w-4 ${
+              sortOrder === 'ASC' ? '' : 'rotate-180'
+            }`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
           >

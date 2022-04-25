@@ -16,8 +16,8 @@ const initialState = {
   error: null,
 };
 
-export const getRequestItems = createAsyncThunk(
-  'request/getRequestItems',
+export const getRequestedItems = createAsyncThunk(
+  'requestedItems/getRequestedItems',
   () => {
     return fetch(`${process.env.REACT_APP_API_URI}/requests`, {
       headers: {
@@ -29,8 +29,8 @@ export const getRequestItems = createAsyncThunk(
   },
 );
 
-const requestSlice = createSlice({
-  name: 'request',
+const requestsSlice = createSlice({
+  name: 'requestedItems',
   initialState,
   reducers: {
     sortByDate(state, action) {
@@ -52,19 +52,19 @@ const requestSlice = createSlice({
     },
   },
   extraReducers: {
-    [getRequestItems.fulfilled](state, action) {
+    [getRequestedItems.fulfilled](state, action) {
       state.status = 'succeeded';
       state.items = action.payload;
     },
-    [getRequestItems.pending](state) {
+    [getRequestedItems.pending](state) {
       state.status = 'loading';
     },
-    [getRequestItems.rejected](state) {
+    [getRequestedItems.rejected](state) {
       state.status = 'failed';
       state.error = 'Failed to get items from the API';
     },
   },
 });
 
-export const { sortByDate, filterItem } = requestSlice.actions;
-export default requestSlice.reducer;
+export const { sortByDate, filterItem } = requestsSlice.actions;
+export default requestsSlice.reducer;

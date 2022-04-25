@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import requestSlice from './pages/Request/requestSlice';
+import requestsSlice from './pages/Request/requestSlice';
 
 const store = configureStore({
   reducer: {
-    request: requestSlice,
+    requestedItems: requestsSlice,
   },
 });
 

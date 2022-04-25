@@ -4,58 +4,53 @@ import { BrowserRouter } from 'react-router-dom';
 
 import store from '../../../store';
 import Request from '../Request';
-import { getRequestItems } from '../requestSlice';
+import { getRequestedItems } from '../requestSlice';
 
+test('fetch data from API', async () => {
+  await store.dispatch(getRequestedItems());
+  const { status } = store.getState().requestedItems;
 
-test('Test fetch data from API', async () => {
-
-    await store.dispatch(getRequestItems());
-    const status = store.getState().request.status;
-
-    expect(status === "succeeded");
-
+  expect(status === 'succeeded');
 });
 
-test('Test date button', async () => {
+test('date button', async () => {
+  await store.dispatch(getRequestedItems());
+  const { items } = store.getState().requestedItems;
 
-    await store.dispatch(getRequestItems());
-    const items = store.getState().request.items;
+  const { container } = render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Request />
+      </BrowserRouter>
+    </Provider>,
+  );
 
-    const { container } = render(
-        <Provider store={store}>
-            <BrowserRouter>
-                <Request />
-            </BrowserRouter>
-        </Provider>
-    );
+  fireEvent.click(screen.queryByText(/date/i));
 
-    fireEvent.click(screen.queryByText(/date/i));
+  expect(await screen.findByText(items[0].name)).toBeInTheDocument();
 
-    expect(await screen.findByText(items[0].name)).toBeInTheDocument();
+  const divList = await container.querySelectorAll('div.grid > div');
 
-    const divList = await container.querySelectorAll('div.grid > div');
-
-    expect(items[0].name === divList[0].querySelector("img").alt);
-
+  expect(items[0].name === divList[0].querySelector('img').alt);
 });
 
-test('Test filter buttons', async () => {
+test('filter buttons', async () => {
+  await store.dispatch(getRequestedItems());
+  const { items } = store.getState().requestedItems;
 
-    await store.dispatch(getRequestItems());
-    const items = store.getState().request.items;
+  const { container } = render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Request />
+      </BrowserRouter>
+    </Provider>,
+  );
 
-    const { container } = render(
-        <Provider store={store}>
-            <BrowserRouter>
-                <Request />
-            </BrowserRouter>
-        </Provider>
-    );
+  fireEvent.click(screen.queryByText(/School Books/i));
 
-    fireEvent.click(screen.queryByText(/School Books/i));
+  const divList = await container.querySelectorAll('div.grid > div');
 
-    const divList = await container.querySelectorAll('div.grid > div');
-
-    expect(items.filter(e => e.type === 'School Books').length === divList.length);
-
+  expect(
+    items.filter((e) => e.type === 'School Books').length === divList.length,
+  );
 });

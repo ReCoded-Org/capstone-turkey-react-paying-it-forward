@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import iconProfile from '../../assets/profile.svg';
+import iconProfile from '../../assets/images/profile.svg';
 import {
   HOME,
   ABOUT_US,

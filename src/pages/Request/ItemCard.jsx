@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function ItemCard({ data, onRespone }) {
-  const onDonatedItem = () => {
+function ItemCard({ data, onResponse }) {
+  const onDonateItemClick = () => {
     fetch(`${process.env.REACT_APP_API_URI}/items/donate`, {
       headers: {
         accept: 'application/json',
@@ -18,13 +18,13 @@ function ItemCard({ data, onRespone }) {
         return resp.json();
       })
       .then(() => {
-        onRespone({
+        onResponse({
           status: 'success',
           message: 'Thank you for helping people',
         });
       })
       .catch((error) => {
-        error.json().then((e) => onRespone({ status: 'failed', ...e }));
+        error.json().then((e) => onResponse({ status: 'failed', ...e }));
       });
   };
 
@@ -39,7 +39,7 @@ function ItemCard({ data, onRespone }) {
           <button
             className="flex items-center justify-between rounded-full bg-[#FF7338] py-2 px-6 text-2sm text-white"
             type="button"
-            onClick={onDonatedItem}
+            onClick={onDonateItemClick}
           >
             <svg
               width="20"
@@ -70,7 +70,7 @@ ItemCard.propTypes = {
     photo: PropTypes.string.isRequired,
     owner: PropTypes.string.isRequired,
   }).isRequired,
-  onRespone: PropTypes.func.isRequired,
+  onResponse: PropTypes.func.isRequired,
 };
 
 export default ItemCard;

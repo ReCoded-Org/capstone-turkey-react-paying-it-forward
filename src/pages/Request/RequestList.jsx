@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ItemCard from './ItemCard';
-import { getRequestItems } from './requestSlice';
+import { getRequestedItems } from './requestSlice';
 
-function RequestList({ searchParams, handleRespone }) {
-  const { status, items, error } = useSelector((state) => state.request);
+function RequestList({ searchParams, handleResponse }) {
+  const { status, items, error } = useSelector((state) => state.requestedItems);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRequestItems());
+    dispatch(getRequestedItems());
   }, [dispatch]);
 
   const itemList = items.filter((e) => {
@@ -27,12 +27,12 @@ function RequestList({ searchParams, handleRespone }) {
     <div className="grid grid-cols-1 xl:grid-cols-3 justify-items-center w-5/6 mx-auto lg:grid-cols-3 md:grid-cols-2">
       {itemList.length === 0 ? (
         <h1 className="text-2xl font-bold my-8 col-span-3">
-          There is no request
+          There are currently no requests for this specific category
         </h1>
       ) : (
         itemList.map((item) => {
           return (
-            <ItemCard key={item._id} data={item} onRespone={handleRespone} />
+            <ItemCard key={item._id} data={item} onResponse={handleResponse} />
           );
         })
       )}
@@ -42,7 +42,7 @@ function RequestList({ searchParams, handleRespone }) {
 
 RequestList.propTypes = {
   searchParams: PropTypes.string.isRequired,
-  handleRespone: PropTypes.func.isRequired,
+  handleResponse: PropTypes.func.isRequired,
 };
 
 export default RequestList;
