@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { render, screen, fireEvent } from '@testing-library/react';
+=======
+import { render, screen, fireEvent, wait } from '@testing-library/react';
+>>>>>>> 59bd8bd19c8d01a4039d30ab2bddf01eaff83c6f
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -34,6 +38,7 @@ test('date button', async () => {
 
   expect(items[0].name).toBe(divList[0].querySelector('img').alt);
 });
+
 
 test('filter buttons', async () => {
   const { items } = store.getState().donated;
