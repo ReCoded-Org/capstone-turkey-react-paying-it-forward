@@ -5,7 +5,7 @@ import requestIcon from '../../../assets/Home/requestIcon.svg';
 function HowItWorks() {
   return (
     <div className=" mt-6">
-      <h1 className="mb-12 text-4xl font-bold">How It Works?</h1>
+      <h1 className="mb-12 text-xl font-bold">How It Works?</h1>
       <div className="h-[60%] bg-[#D8F4EC] flex flex-col justify-center items-center rounded-2xl px-6 mx-7">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mt-20 mb-20 ">
           <div className="max-w-sm rounded-2xl shadow-lg bg-white">

@@ -4,27 +4,27 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const DonatorsData = [
   {
-    name: 'donator1',
+    name: 'donator 1',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
   },
   {
-    name: 'donator2',
+    name: 'donator 2',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
   },
   {
-    name: 'donator2',
+    name: 'donator 3',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
   },
   {
-    name: 'donator2',
+    name: 'donator 4',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
   },
   {
-    name: 'donator2',
+    name: 'donator 5',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
   },
   {
-    name: 'donator2',
+    name: 'donator 6',
     img: 'https://mdbcdn.b-cdn.net/img/new/avatars/8.webp',
   },
 ];
@@ -75,10 +75,10 @@ function Donators() {
   };
   return (
     <div className="bg-[#D8F4EC] min-h-[500px] md:min-h-[175px] rounded-3xl py-8 mx-7">
-      <h1 className="mt-12 mb-16 text-4xl font-bold">Donators</h1>
+      <h1 className=" mb-16 text-xl font-bold">Donators</h1>
       <Slider className="mt-3" {...settings}>
         {DonatorsData.map((Donator) => (
-          <div>
+          <div className="w-full">
             <div>
               <img
                 src={Donator.img}

@@ -53,7 +53,7 @@ function Testimonial() {
   };
   return (
     <div className="min-h-[225px] md:min-h-[225px] p-3 my-6">
-      <h1 className="my-12 text-4xl font-bold"> Our Testimonial </h1>
+      <h1 className="my-12 text-xl font-bold"> Our Testimonial </h1>
       <Slider className="flex gap-6 my-6 mx-3 " {...settings}>
         {texts.map((text) => (
           <h3 className="sm:gap-4">{text}</h3>

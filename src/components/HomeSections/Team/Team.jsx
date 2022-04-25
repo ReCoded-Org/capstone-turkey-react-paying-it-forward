@@ -48,7 +48,7 @@ function Team() {
   return (
     <div className="mt-3">
       <div>
-        <h1 className=" mt-14 text-4xl font-bold ">The Team</h1>
+        <h1 className=" mt-14 text-xl font-bold ">The Team</h1>
       </div>
       <div className="py-12 flex flex-row md:gap-14 flex-wrap items-center justify-center">
         {Memebers.map((person) => (
