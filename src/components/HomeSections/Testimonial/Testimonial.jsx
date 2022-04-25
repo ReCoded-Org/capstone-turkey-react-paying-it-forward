@@ -1,6 +1,4 @@
 import Slider from 'react-slick';
-// import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import './Testomonial.css';
 
 const texts = [
   ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore .',
