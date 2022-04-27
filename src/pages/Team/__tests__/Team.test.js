@@ -13,7 +13,7 @@ test('Team Page', () => {
 
   render(<Team />);
 
-  for (let i = 0; i < members.length; i++) {
+  for (let i = 0; i < members.length; i += 1) {
     expect(screen.getByText(members[i])).toBeInTheDocument();
   }
 });
