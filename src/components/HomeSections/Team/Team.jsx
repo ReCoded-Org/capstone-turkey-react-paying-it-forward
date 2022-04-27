@@ -4,17 +4,17 @@ function Team() {
   const Memebers = [
     {
       id: 1,
-      name: 'Khadija Hawa',
-      department: 'Web Developer',
-      image:
-        'https://ca.slack-edge.com/T02ST1JH0CE-U02TGC9JKS8-3d89cad21cb6-512',
-    },
-    {
-      id: 2,
       name: 'Kutay Kağan Özen',
       department: 'Team Leader',
       image:
         'https://ca.slack-edge.com/T02ST1JH0CE-U032E6F3KNY-1d2d343493bf-512',
+    },
+    {
+      id: 2,
+      name: 'Khadija Hawa',
+      department: 'Web Developer',
+      image:
+        'https://ca.slack-edge.com/T02ST1JH0CE-U02TGC9JKS8-3d89cad21cb6-512',
     },
     {
       id: 3,
