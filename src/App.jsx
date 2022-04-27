@@ -1,8 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home/Home';
-import Navbar from './components/Navbar/Navbar';
 
+import Navbar from './components/Navbar/Navbar';
+import Donated from './pages/Donated/Donated';
+// import Home from './pages/Home/Home';
 // import Login from './components/Login/Login';
 // import Signup from './components/Signup/Signup';
 // import Faq from './pages/FAQ/Faq';
@@ -14,7 +15,7 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar isLogin />
-        <Home />
+        <Donated />
         <Footer />
       </BrowserRouter>
     </div>
