@@ -1,43 +1,29 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { SIGN_UP } from '../../routes';
+import { SIGN_UP, HOME } from '../../routes';
+import { login } from '../../utils/UserAPI';
 import logoc from '../../assets/images/logoc.png';
 import Light from '../../assets/images/Light.png';
 
-async function loginUser(credentials) {
-  const postObject = Object.create(null);
-  postObject.username = credentials.username.split('@')[0];
-  postObject.password = credentials.password;
-
-  return fetch('https://payingitforward.re-coded.com/api/auth/signin', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(postObject),
-  }).then((data) => data.json());
-}
-
 export default function Login() {
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const token = await loginUser({
-      username,
-      password,
-    });
-    // setToken(token);
-  };
+  useEffect(() => {
+    if (currentUser) {
+      navigate(HOME);
+    }
+  }, [currentUser, navigate]);
 
   return (
     <Formik
       initialValues={{
-        email: '',
+        username: '',
         password: '',
       }}
       validationSchema={Yup.object({
@@ -46,10 +32,12 @@ export default function Login() {
           .required('Email cannot be empty'),
         password: Yup.string().required('Password cannot be empty'),
       })}
-      onSubmit={() => {
-        setTimeout(() => {
-          handleSubmit();
-        }, 1000);
+      onSubmit={(values, { setSubmitting }) => {
+        const test = values.email.split('@');
+        values.username = test[0];
+        delete values.email;
+        login(dispatch, values);
+        setSubmitting(false);
       }}
     >
       <div className="min-h-screen flex items-center justify-center sm:items-center">
@@ -71,14 +59,12 @@ export default function Login() {
                       Sign In
                     </h1>
                   </div>
-                  <Form
-                    className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6"
-                    onSubmit={handleSubmit}
-                  >
+                  <Form className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6">
                     <Field name="email">
                       {({ field, form }) => (
                         <div className="relative">
                           <label
+                            id="username"
                             htmlFor="email"
                             aria-label="Email"
                             className="hidden"
@@ -92,7 +78,6 @@ export default function Login() {
                             type="text"
                             name="email"
                             id="email1"
-                            onInput={(e) => setUserName(e.target.value)}
                             style={
                               form.touched.email && form.errors.email
                                 ? { border: '2px solid var(--primary-red)' }
@@ -142,7 +127,6 @@ export default function Login() {
                             type="password"
                             name="password"
                             id="password1"
-                            onInput={(e) => setPassword(e.target.value)}
                             style={
                               form.touched.password && form.errors.password
                                 ? { border: '2px solid var(--primary-red)' }

@@ -1,44 +1,24 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { register } from '../../utils/UserAPI';
 import { LOG_IN } from '../../routes';
+
 import logoc from '../../assets/images/logoc.png';
 import Light from '../../assets/images/Light.png';
 
-async function signupUser(credentials) {
-  const postObject = Object.create(null);
-  postObject.username = credentials.username.split('@')[0];
-  postObject.email = credentials.username;
-  postObject.firstName = 'dummy';
-  postObject.lastName = 'dummy';
-  postObject.address = 'dummy';
-  postObject.password = credentials.password;
-  postObject.passwordConfirm = credentials.password;
-  postObject.acceptTerms = true;
-
-  return fetch('https://payingitforward.re-coded.com/api/auth/signup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(postObject),
-  }).then((data) => data.json());
-}
-
 export default function Signup() {
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const token = await signupUser({
-      username,
-      password,
-    });
-    // setToken(token);
-  };
+  const dispatch = useDispatch();
+  const { isSuccessRegister, currentUser } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isSuccessRegister) {
+      navigate(LOG_IN);
+    }
+  }, [isSuccessRegister, currentUser, navigate]);
 
   return (
     <Formik
@@ -52,10 +32,18 @@ export default function Signup() {
           .required('Email cannot be empty'),
         password: Yup.string().required('Password cannot be empty'),
       })}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          actions.resetForm();
-        }, 1000);
+      onSubmit={(values, { setSubmitting }) => {
+        const postObject = Object.create(null);
+        postObject.username = values.email.split('@')[0];
+        postObject.email = values.email;
+        postObject.firstName = 'dummy';
+        postObject.lastName = 'dummy';
+        postObject.address = 'dummy';
+        postObject.password = values.password;
+        postObject.passwordConfirm = values.password;
+        postObject.acceptTerms = true;
+        register(dispatch, postObject);
+        setSubmitting(false);
       }}
     >
       <div className="min-h-screen flex items-center justify-center md:items-center sm:items-center">
@@ -78,10 +66,7 @@ export default function Signup() {
                       Sign Up
                     </h1>
                   </div>
-                  <Form
-                    className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6"
-                    onSubmit={handleSubmit}
-                  >
+                  <Form className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6">
                     <Field name="email">
                       {({ field, form }) => (
                         <div className="relative">
@@ -99,7 +84,6 @@ export default function Signup() {
                             type="text"
                             name="email"
                             id="email"
-                            onInput={(e) => setUserName(e.target.value)}
                             style={
                               form.touched.email && form.errors.email
                                 ? { border: '2px solid var(--primary-red)' }
@@ -149,7 +133,6 @@ export default function Signup() {
                             type="password"
                             name="password"
                             id="password"
-                            onInput={(e) => setPassword(e.target.value)}
                             style={
                               form.touched.password && form.errors.password
                                 ? { border: '2px solid var(--primary-red)' }
