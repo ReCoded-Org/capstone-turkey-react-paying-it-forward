@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 // import ContactUs from './pages/ContactUs/ContactUs';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-// import Request from './pages/Request/Request';
+// import Donated from './pages/Donated/Donated';
 import Footer from './components/Footer/Footer';
 
 function App() {
