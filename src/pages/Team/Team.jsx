@@ -3,7 +3,7 @@ function Team() {
     {
       id: 1,
       name: 'Kutay Kağan Özen',
-      department: 'Team Leader',
+      department: 'Lead Engineer',
       image:
         'https://ca.slack-edge.com/T02ST1JH0CE-U032E6F3KNY-1d2d343493bf-512',
       link: 'https://github.com/Iseluin',
@@ -99,7 +99,7 @@ function Team() {
                     fill="#3F3B3B"
                   />
                 </svg>
-                <a href={member.link}>
+                <a href={member.link} target="_blank" rel="noreferrer">
                   <svg
                     className="ml-2"
                     xmlns="http://www.w3.org/2000/svg"
