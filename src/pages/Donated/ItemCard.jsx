@@ -8,15 +8,18 @@ function ItemCard({ data, onResponse }) {
   const onRequestDonatedItem = () => {
     setLoading(true);
 
-    fetch(`${process.env.REACT_APP_API_URI}/items/donate`, {
+    fetch(`${process.env.REACT_APP_API_URI}/requests`, {
       headers: {
         accept: 'application/json',
       },
-      body: {
-        donateItemId: data._id,
-        borrowerId: data.owner,
-      },
-      method: 'PUT',
+      body: JSON.stringify({
+        _id: data._id,
+        name: data.name,
+        description: data.description,
+        type: data.type,
+        photo: data.photo,
+      }),
+      method: 'POST',
     })
       .then((resp) => {
         if (!resp.ok) return Promise.reject(resp);
@@ -39,11 +42,7 @@ function ItemCard({ data, onResponse }) {
   return (
     <div className="flex w-[300px] flex-col space-y-3 rounded-md bg-[#ECF1F8] p-4 justify-center mb-3">
       <Link to={`donated/${data._id}`}>
-        <img
-          className=""
-          alt={data.name}
-          src="https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg"
-        />
+        <img className="" alt={data.name} src={data.photo} />
       </Link>
       <div className="flex flex-col space-y-2">
         <div className="flex items-center">
@@ -192,6 +191,9 @@ ItemCard.propTypes = {
       lastName: PropTypes.string.isRequired,
     }),
     count: PropTypes.number.isRequired,
+    photo: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   }).isRequired,
   onResponse: PropTypes.func.isRequired,
 };

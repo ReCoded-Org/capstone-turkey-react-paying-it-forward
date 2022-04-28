@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 // import ContactUs from './pages/ContactUs/ContactUs';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-// import Donated from './pages/Donated/Donated';
+import Donated from './pages/Donated/Donated';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar isLogin />
+        <Donated />
         <Footer />
       </BrowserRouter>
     </div>
