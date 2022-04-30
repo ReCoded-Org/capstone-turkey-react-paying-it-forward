@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { generateToken } from './UserAPI';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -8,6 +9,7 @@ export const userSlice = createSlice({
     isSuccessLogin: false,
     isSuccessRegister: false,
     isError: false,
+    token: null,
   },
 
   reducers: {
@@ -16,11 +18,11 @@ export const userSlice = createSlice({
       state.isError = false;
       state.isSuccessLogin = false;
     },
-    loginSuccess: (state, action) => {
+    loginSuccess: (state) => {
       state.isLoading = false;
-      state.currentUser = action.payload;
       state.isError = false;
       state.isSuccessLogin = true;
+      state.token = generateToken(state.currentUser);
     },
     loginFailure: (state) => {
       state.isLoading = false;
@@ -32,10 +34,11 @@ export const userSlice = createSlice({
       state.isError = false;
       state.isSuccessRegister = false;
     },
-    registerSuccess: (state) => {
+    registerSuccess: (state, action) => {
       state.isLoading = false;
       state.isError = false;
       state.isSuccessRegister = true;
+      state.currentUser = action.payload;
     },
     registerFailure: (state) => {
       state.isLoading = false;

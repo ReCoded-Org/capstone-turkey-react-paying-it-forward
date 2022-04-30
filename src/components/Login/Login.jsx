@@ -16,7 +16,7 @@ export default function Login() {
 
   useEffect(() => {
     if (currentUser) {
-      navigate(HOME);
+      // navigate(HOME);
     }
   }, [currentUser, navigate]);
 
@@ -27,9 +27,7 @@ export default function Login() {
         password: '',
       }}
       validationSchema={Yup.object({
-        email: Yup.string()
-          .email('Looks like this is not an email')
-          .required('Email cannot be empty'),
+        email: Yup.string().required('Email cannot be empty'),
         password: Yup.string().required('Password cannot be empty'),
       })}
       onSubmit={(values, { setSubmitting }) => {
