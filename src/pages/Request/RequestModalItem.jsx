@@ -13,8 +13,6 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement('#root');
-
 function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [items, setItems] = useState([]);
