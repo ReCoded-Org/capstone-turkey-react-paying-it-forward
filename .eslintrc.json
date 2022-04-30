@@ -19,30 +19,19 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "quotes": [
-      "error",
-      "single",
-      {
-        "avoidEscape": true
-      }
-    ],
-    "react/jsx-uses-react": ["off"],
-    "react/react-in-jsx-scope": ["off"],
-    "react/jsx-props-no-spreading": ["off"],
+    "quotes":["error","single",{"avoidEscape": true}],
+    "react/jsx-uses-react":["off"],
+    "react/react-in-jsx-scope":["off"],
+    "react/jsx-props-no-spreading":["warn"],
+    "no-param-reassign":["off"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "testing-library/prefer-screen-queries":["off"],
+    "no-underscore-dangle": "off",
+    "testing-library/no-node-access": "off",
+    "testing-library/no-container": "off",
     "jsx-a11y/label-has-associated-control": ["off"],
-    "no-param-reassign": ["off"],
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".js", ".jsx"]
-      }
-    ],
-    "testing-library/prefer-screen-queries": ["off"],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
+
+
