@@ -3,7 +3,6 @@ import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import Team from './pages/Team/Team';
 // import Home from './pages/Home/Home';
 // import Login from './components/Login/Login';
 // import Signup from './components/Signup/Signup';
@@ -16,7 +15,6 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar isLogin />
-        <Team />
         <Footer />
       </BrowserRouter>
     </div>
