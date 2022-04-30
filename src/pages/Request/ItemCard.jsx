@@ -1,10 +1,15 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 import RequestModalItem from './RequestModalItem';
 
-function ItemCard({ data, onRespone }) {
+function ItemCard({ data, onResponse }) {
+  const [isLoading, setLoading] = useState(false);
   const [compIsShown, setModalIsShown] = useState(false);
-  const onDonatedItem = () => {
+
+  const onDonateItemClick = () => {
+    setLoading(true);
+
     fetch(`${process.env.REACT_APP_API_URI}/items/donate`, {
       headers: {
         accept: 'application/json',
@@ -20,13 +25,16 @@ function ItemCard({ data, onRespone }) {
         return resp.json();
       })
       .then(() => {
-        onRespone({
+        onResponse({
           status: 'success',
           message: 'Thank you for helping people',
         });
       })
       .catch((error) => {
-        error.json().then((e) => onRespone({ status: 'failed', ...e }));
+        error.json().then((e) => onResponse({ status: 'failed', ...e }));
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -45,7 +53,7 @@ function ItemCard({ data, onRespone }) {
           <button
             className="flex items-center justify-between rounded-full bg-[#FF7338] py-2 px-6 text-2sm text-white"
             type="button"
-            onClick={onDonatedItem}
+            onClick={onDonateItemClick}
           >
             <svg
               width="20"
@@ -62,6 +70,28 @@ function ItemCard({ data, onRespone }) {
               />
             </svg>
             <span className="font-bold text-4sm ml-2">Donate</span>
+            {isLoading && (
+              <svg
+                className="animate-spin ml-2 h-4 w-4 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                />
+              </svg>
+            )}
           </button>
         </div>
       </div>
@@ -69,7 +99,7 @@ function ItemCard({ data, onRespone }) {
         <RequestModalItem
           id={data._id}
           setCompIsShown={setModalIsShown}
-          onDonatedItem={onDonatedItem}
+          onDonatedItem={onDonateItemClick}
         />
       )}
     </div>
@@ -83,7 +113,7 @@ ItemCard.propTypes = {
     photo: PropTypes.string.isRequired,
     owner: PropTypes.string.isRequired,
   }).isRequired,
-  onRespone: PropTypes.func.isRequired,
+  onResponse: PropTypes.func.isRequired,
 };
 
 export default ItemCard;
