@@ -5,7 +5,7 @@ import requestsSlice from './pages/Request/requestSlice';
 const store = configureStore({
   reducer: {
     donated: donatedSlice,
-    requestedItems: requestsSlice
+    requestedItems: requestsSlice,
   },
 });
 
