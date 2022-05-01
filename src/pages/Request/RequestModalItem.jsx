@@ -60,17 +60,17 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
               />
             </div>
             <div className="ml-10 flex flex-col justify-center items-center">
-              <div className="flex justify-center mt-1 font-bold">
+              <div className="flex justify-center mt-1 font-bold text-amber-700">
                 Item Name
               </div>
               <div className="flex justify-center mt-1">{items.name}</div>
-              <div className="flex justify-center mt-1 font-bold">
+              <div className="flex justify-center mt-1 font-bold text-amber-700">
                 Description
               </div>
               <div className="flex justify-center mt-1">
                 {items.description}
               </div>
-              <div className="flex justify-center mt-1 font-bold">
+              <div className="flex justify-center mt-1 font-bold text-amber-700">
                 Item Owner Information
               </div>
               <div className="flex justify-center mt-1">
