@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-modal';
+import { useEffect, useState } from 'react';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 import PropTypes from 'prop-types';
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
+import './custom-animation.css';
 
 function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
   const [items, setItems] = useState([]);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  function openModal(itemId) {
+  const openModal = (itemId) => {
     fetch(`https://payingitforward.re-coded.com/api/requests/${itemId}`)
       .then((response) => response.json())
       .then((response) => {
@@ -33,14 +25,12 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
             setLoading(false);
           });
       });
-
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
+    setOpen(true);
+  };
+  const onCloseModal = () => {
+    setOpen(false);
     setCompIsShown(false);
-  }
+  };
 
   useEffect(() => {
     openModal(id);
@@ -48,20 +38,20 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
   return (
     <div>
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-        ariaHideApp={false}
+        open={open}
+        onClose={onCloseModal}
+        center
+        classNames={{
+          overlayAnimationIn: 'customEnterOverlayAnimation',
+          overlayAnimationOut: 'customLeaveOverlayAnimation',
+          modalAnimationIn: 'customEnterModalAnimation',
+          modalAnimationOut: 'customLeaveModalAnimation',
+        }}
+        animationDuration={800}
       >
-        <div className="flex justify-end">
-          <button type="button" onClick={closeModal}>
-            x
-          </button>
-        </div>
-        {loading && <div>Loading...</div>}
+        {loading && <div className="mt-4">Loading...</div>}
         {!loading && (
-          <div className="flex">
+          <div>
             <div className="object-cover flex justify-center mt-2">
               <img
                 alt={items.name}
@@ -93,7 +83,7 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
                 type="button"
                 onClick={() => {
                   onDonatedItem();
-                  closeModal();
+                  onCloseModal();
                 }}
               >
                 <svg
