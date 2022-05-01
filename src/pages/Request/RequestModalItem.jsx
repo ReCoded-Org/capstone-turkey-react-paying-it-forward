@@ -52,6 +52,7 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
         onRequestClose={() => closeModal}
         style={customStyles}
         contentLabel="Example Modal"
+        ariaHideApp={false}
       >
         <div className="flex justify-end">
           <button type="button" onClick={closeModal}>
@@ -121,7 +122,7 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
 
 RequestModalItem.propTypes = {
   id: PropTypes.string.isRequired,
-  setCompIsShown: PropTypes.bool.isRequired,
+  setCompIsShown: PropTypes.func.isRequired,
   onDonatedItem: PropTypes.func.isRequired,
 };
 
