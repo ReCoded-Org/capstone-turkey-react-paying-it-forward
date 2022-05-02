@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
+import RequestModalItem from './RequestModalItem';
+
 function ItemCard({ data, onResponse }) {
   const [isLoading, setLoading] = useState(false);
+  const [compIsShown, setModalIsShown] = useState(false);
 
   const onDonateItemClick = () => {
     setLoading(true);
@@ -38,9 +40,13 @@ function ItemCard({ data, onResponse }) {
 
   return (
     <div className="flex w-[300px] flex-col space-y-3 rounded-md bg-[#ECF1F8] p-4 justify-center mb-3">
-      <Link to={`request/${data._id}`}>
-        <img className="h-[354px]" alt={data.name} src={data.photo} />
-      </Link>
+      <input
+        type="image"
+        className="h-[354px] cursor-pointer"
+        alt={data.name}
+        src={data.photo}
+        onClick={() => setModalIsShown(true)}
+      />
       <div className="flex flex-col space-y-2">
         <h3 className="text-2xl font-medium text-[#3F3B3B]">{data.name}</h3>
         <div className="flex items-center justify-center">
@@ -89,6 +95,13 @@ function ItemCard({ data, onResponse }) {
           </button>
         </div>
       </div>
+      {compIsShown && (
+        <RequestModalItem
+          id={data._id}
+          setCompIsShown={setModalIsShown}
+          onDonatedItem={onDonateItemClick}
+        />
+      )}
     </div>
   );
 }
