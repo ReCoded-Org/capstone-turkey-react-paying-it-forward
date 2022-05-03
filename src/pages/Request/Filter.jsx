@@ -7,7 +7,6 @@ import i18next from "i18next";
 function Filter({ filterBy, searchParams }) {
   const { type, sortOrder } = useSelector((state) => state.requestedItems);
   const dispatch = useDispatch();
-
   const { i18n, t } = useTranslation(["common"]);
 
   const handleFilter = (filterTerm) => {

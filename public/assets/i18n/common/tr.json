@@ -42,5 +42,15 @@
     "subscribeform": "Haber bültenimize abone olun",
     "subscribe": "Abone ol",
     "subscribed":"Haber bültenimize abone oldunuz",
-    "enterYourEmailAddress":"Email adresinizi giriniz."
+    "enterYourEmailAddress":"Email adresinizi giriniz.",
+    "makeRequest": "Talepte Bulun",
+    "categories" :  "Kategoriler",
+    "count": "Adet",
+    "availableItems": "Mevcut Eşyalar",
+    "CONTACTUS": "İLETİŞİM",
+    "expertTeam": "Lütfen iletişime geçin, uzman ekibimiz tüm sorularınızı yanıtlayacaktır.",
+    "fullName": "İSİM SOYİSİM",
+    "message": "Mesaj",
+    "sendMessage":"Mesaji Gönder",
+    "email":"Email"
 }
