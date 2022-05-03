@@ -61,13 +61,18 @@ function ItemCard({ data, onResponse }) {
 
   return (
     <div className="flex w-[300px] flex-col space-y-3 rounded-md bg-[#ECF1F8] p-4 justify-center mb-3">
-      <img
-        className="h-[354px] cursor-pointer"
-        alt={data.name} src={data.photo}
+      <button
+        type="button"
         onClick={() => {
           openModal();
         }}
-      />
+      >
+        <img
+          className="h-[354px] cursor-pointer"
+          alt={data.name}
+          src={data.photo}
+        />
+      </button>
       <div className="flex flex-col space-y-2">
         <div className="flex items-center">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
@@ -219,11 +224,7 @@ function ItemCard({ data, onResponse }) {
           className="grid grid-cols-1 h-screen w-full lg:grid-cols-2 md:grid-cols-1 justify-items-center overflow-y-auto overflow-x-hidden top-0 right-0 left-0 z-50 h-modal lg:h-full md:inset-0"
         >
           <div className="modal-dialog relative w-auto pointer-events-none object-cover mx-8 my-8 flex mt-2">
-            <img
-              alt={data.name}
-              src={data.photo}
-              style={{ width: '420px' }}
-            />
+            <img alt={data.name} src={data.photo} style={{ width: '420px' }} />
           </div>
           <div className="ml-2 my-10 flex flex-col">
             <div className="flex justify-center mt-1 font-bold text-lg text-[#FF7338]">
@@ -251,10 +252,11 @@ function ItemCard({ data, onResponse }) {
               Item Owner Information
             </div>
             <div className="flex justify-center mt-1">
-              {data.owner
-                && `${data.owner.firstName} ${data.owner.lastName}`}
+              {data.owner && `${data.owner.firstName} ${data.owner.lastName}`}
             </div>
-            <div className="flex justify-center mt-1">{data.owner && data.owner.email}</div>
+            <div className="flex justify-center mt-1">
+              {data.owner && data.owner.email}
+            </div>
             <div className="flex justify-center my-8 mt-1">
               {data.owner && data.owner.address}
             </div>
@@ -292,7 +294,6 @@ function ItemCard({ data, onResponse }) {
             </button>
           </div>
         </div>
-
       </Modal>
     </div>
   );
