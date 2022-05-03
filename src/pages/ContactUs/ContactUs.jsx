@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import contactus from '../../assets/images/contactus.svg';
 import sendEmail from '../../utils/sendEmail';
@@ -10,11 +10,12 @@ function Contactus() {
   const { t } = useTranslation(['common']);
 
   return (
-    
     <section className="text-gray-600 body-font relative">
-      <h1 className="text-gray-400 text-5xl p-5 font-medium">{t('CONTACTUS')}</h1>
+      <h1 className="text-gray-400 text-5xl p-5 font-medium">
+        {t('CONTACTUS')}
+      </h1>
       <h2 className="text-3xl font-medium drop-shadow-md px-10">
-      {t('expertTeam')}
+        {t('expertTeam')}
       </h2>
       <div className="px-5 py-2 mx-auto flex sm:flex-nowrap flex-wrap flex-col md:flex-row items-center">
         <div className="lg:w-2/3 md:w-1/2 w-full">
