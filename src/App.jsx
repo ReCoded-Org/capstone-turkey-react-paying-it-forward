@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
+import { Suspense } from "react";
 import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
@@ -14,11 +15,13 @@ import Request from './pages/Request/Request';
 export default function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar isLogin />
-        <Request />
-        <Footer />
-      </BrowserRouter>
+      <Suspense fallback={null}>
+        <BrowserRouter>
+          <Navbar isLogin />
+          <Request />
+          <Footer />
+        </BrowserRouter>
+      </Suspense>
     </div>
   );
 }

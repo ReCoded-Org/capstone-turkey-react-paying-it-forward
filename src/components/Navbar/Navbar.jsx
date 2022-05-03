@@ -1,6 +1,8 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 import iconProfile from '../../assets/images/profile.svg';
 import {
@@ -17,6 +19,18 @@ function Navbar({ isLogin }) {
   const [lang, setLang] = useState('en');
 
   const menu = useRef();
+
+  const { i18n, t } = useTranslation(["navbar"]);
+
+	useEffect(() => {
+		if (localStorage.getItem("i18nextLng")?.length > 1) {
+			i18next.changeLanguage("en");
+		}
+	}, []);
+
+	const handleLanguageChange = (language) => {
+		i18n.changeLanguage(language);
+	};
 
   return (
     <nav className="bg-primary">
@@ -94,7 +108,7 @@ function Navbar({ isLogin }) {
                   to={HOME}
                   className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Home
+                  {t("home")}
                 </Link>
 
                 {isLogin && (
@@ -279,8 +293,10 @@ function Navbar({ isLogin }) {
                   onClick={() => {
                     if (lang === 'en') {
                       setLang('tr');
+                      handleLanguageChange("tr");
                     } else {
                       setLang('en');
+                      handleLanguageChange("en");
                     }
                   }}
                 >
