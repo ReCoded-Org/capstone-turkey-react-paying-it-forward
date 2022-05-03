@@ -32,7 +32,7 @@ test('date button', async () => {
 
   const divList = await container.querySelectorAll('div.grid > div');
 
-  expect(items[0].name).toBe(divList[0].querySelector('img').alt);
+  expect(items[0].name).toBe(divList[0].querySelector('input').alt);
 });
 
 test('filter buttons', async () => {
