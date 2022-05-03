@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import iconProfile from '../../assets/images/profile.svg';
@@ -8,7 +8,6 @@ import {
   ABOUT_US,
   DONATION,
   HOW_IT_WORKS,
-  LOG_OUT,
   REQUEST,
   SIGN_UP,
 } from '../../routes';
@@ -17,6 +16,18 @@ function Navbar({ isLogin }) {
   const [lang, setLang] = useState('en');
 
   const menu = useRef();
+  const navigate = useNavigate();
+
+  const logOut = (e) => {
+    e.preventDefault();
+
+    // Todo
+    // Implement logout based on User Store function
+
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
+  };
 
   return (
     <nav className="bg-primary">
@@ -263,12 +274,13 @@ function Navbar({ isLogin }) {
                     </button>
                     <ul className="dropdown-menu absolute z-40 hidden text-white flex flex-row">
                       <li>
-                        <Link
+                        <button
                           className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
-                          to={LOG_OUT}
+                          type="button"
+                          onClick={logOut}
                         >
                           Logout
-                        </Link>
+                        </button>
                       </li>
                     </ul>
                   </div>
@@ -320,13 +332,13 @@ function Navbar({ isLogin }) {
           {isLogin && (
             <>
               <Link
-                to={HOME}
+                to={DONATION}
                 className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Donation For
               </Link>
               <Link
-                to={HOME}
+                to={REQUEST}
                 className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Request For
@@ -354,12 +366,13 @@ function Navbar({ isLogin }) {
             </Link>
           )}
           {isLogin && (
-            <Link
-              to={LOG_OUT}
-              className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            <button
+              type="button"
+              onClick={logOut}
+              className="w-full text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               Logout
-            </Link>
+            </button>
           )}
         </div>
       </div>
