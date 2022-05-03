@@ -22,8 +22,7 @@ test('Check Navbar in login status', () => {
   expect(
     screen.getByText((content, element) => {
       return (
-        element.tagName.toLowerCase() === 'span' &&
-        content.match(/requestFor/i)
+        element.tagName.toLowerCase() === 'span' && content.match(/requestFor/i)
       );
     }),
   ).toBeInTheDocument();
