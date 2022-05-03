@@ -12,16 +12,16 @@ import ContactUs from './pages/ContactUs/ContactUs';
 import Donated from './pages/Donated/Donated';
 import Request from './pages/Request/Request';
 
-import {
-  ABOUT_US,
-  DONATION,
-  LOG_IN,
-  QA,
-  REQUEST,
-  SIGN_UP,
-  CONTACT_US,
-} from './routes';
-import Team from './pages/Team/Team';
+// import {
+//   ABOUT_US,
+//   DONATION,
+//   LOG_IN,
+//   QA,
+//   REQUEST,
+//   SIGN_UP,
+//   CONTACT_US,
+// } from './routes';
+// import Team from './pages/Team/Team';
 
 export default function App() {
   return (

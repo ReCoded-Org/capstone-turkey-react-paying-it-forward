@@ -1,21 +1,20 @@
 import { useRef } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useTranslation } from "react-i18next";
 
 import contactus from '../../assets/images/contactus.svg';
 import sendEmail from '../../utils/sendEmail';
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
 
 function Contactus() {
   const modelRef = useRef();
-  const { i18n, t } = useTranslation(["common"]);
+  const { t } = useTranslation(['common']);
 
   return (
     
     <section className="text-gray-600 body-font relative">
-      <h1 className="text-gray-400 text-5xl p-5 font-medium">{t("CONTACTUS")}</h1>
+      <h1 className="text-gray-400 text-5xl p-5 font-medium">{t('CONTACTUS')}</h1>
       <h2 className="text-3xl font-medium drop-shadow-md px-10">
-      {t("expertTeam")}
+      {t('expertTeam')}
       </h2>
       <div className="px-5 py-2 mx-auto flex sm:flex-nowrap flex-wrap flex-col md:flex-row items-center">
         <div className="lg:w-2/3 md:w-1/2 w-full">
@@ -52,7 +51,7 @@ function Contactus() {
                       htmlFor="name"
                       className="uppercase text-sm text-gray-500 font-bold"
                     >
-                      {t("fullName")}
+                      {t('fullName')}
                       <input
                         className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                         name={field.name}
@@ -100,7 +99,7 @@ function Contactus() {
                       htmlFor="message"
                       className="uppercase text-sm text-gray-500 font-bold"
                     >
-                      {t("message")}
+                      {t('message')}
                       <textarea
                         rows="4"
                         className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -122,7 +121,7 @@ function Contactus() {
                 type="submit"
                 className="uppercase text-sm font-bold tracking-wide bg-primary text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline"
               >
-                {t("sendMessage")}
+                {t('sendMessage')}
               </button>
             </Form>
           </Formik>
