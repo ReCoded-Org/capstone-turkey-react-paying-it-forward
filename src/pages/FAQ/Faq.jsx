@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import imagefaq from '../../assets/images/image-faq.png';
 
 function Faq() {
+  const { t } = useTranslation(['common']);
   return (
     <div>
       <div className="flex items-center justify-center p-4">
@@ -36,7 +38,7 @@ function Faq() {
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              What is Paying It Forward?
+              {t('What is Paying It Forward?')}
             </button>
           </h2>
           <div
@@ -45,9 +47,8 @@ function Faq() {
             aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold">
-              It is an application that provides donations to students, which
-              was established to reduce inequality in the education system.
+            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold flex justify-start">
+              {t('payingItForward')}
             </div>
           </div>
         </div>
@@ -76,7 +77,7 @@ function Faq() {
               aria-expanded="false"
               aria-controls="flush-collapseTwo"
             >
-              <div>How can you request an item?</div>
+              <div>{t('How can you request an item?')}</div>
             </button>
           </h2>
           <div
@@ -85,11 +86,8 @@ function Faq() {
             aria-labelledby="flush-headingTwo"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold">
-              First of all, you must be a member of the application. After you
-              become a member, you must click on the request button on the
-              homepage. You can make a request by filling out the form that
-              opens.
+            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold flex justify-start">
+              {t('requestAnItem')}
             </div>
           </div>
         </div>
@@ -118,7 +116,7 @@ function Faq() {
               aria-expanded="false"
               aria-controls="flush-collapseThree"
             >
-              How can you donate an item?
+              {t('How can you donate an item?')}
             </button>
           </h2>
           <div
@@ -127,10 +125,8 @@ function Faq() {
             aria-labelledby="flush-headingThree"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold">
-              First of all, you must be a member of the application. After you
-              become a member, you must click on the donation button on the
-              homepage. You can donate by filling out the form.
+            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold flex justify-start">
+              {t('donateAnItem')}
             </div>
           </div>
         </div>
@@ -159,7 +155,7 @@ function Faq() {
               aria-expanded="false"
               aria-controls="flush-collapseFour"
             >
-              Do I have to pay any fees to request or donate?
+              {t('Do I have to pay any fees to request or donate?')}
             </button>
           </h2>
           <div
@@ -168,8 +164,8 @@ function Faq() {
             aria-labelledby="flush-headingFour"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold">
-              It is completely free to request or donate.
+            <div className="accordion-body py-4 px-5 bg-[#D8F4EC] font-semibold flex justify-start">
+              {t('It is completely free to request or donate.')}
             </div>
           </div>
         </div>

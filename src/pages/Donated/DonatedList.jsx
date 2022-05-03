@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+import { useTranslation } from 'react-i18next';
 
 import ItemCard from './ItemCard';
 import { getAvailableItems, getItemsByFilter } from './donatedSlice';
@@ -10,7 +9,7 @@ import { getAvailableItems, getItemsByFilter } from './donatedSlice';
 function DonatedList({ searchParams, handleResponse }) {
   const { status, items, error } = useSelector((state) => state.donated);
   const dispatch = useDispatch();
-  const { i18n, t } = useTranslation(["common"]);
+  const { t } = useTranslation(['common']);
 
   useEffect(() => {
     if (searchParams === null || searchParams === 'All')
@@ -19,7 +18,7 @@ function DonatedList({ searchParams, handleResponse }) {
   }, [searchParams, dispatch]);
 
   if (status === 'loading')
-    return <h1 className="text-2xl text-white">{t("loading")}</h1>;
+    return <h1 className="text-2xl text-white">{t('loading')}</h1>;
   if (status === 'failed')
     return <h1 className="text-2xl font-bold my-8">{error}</h1>;
 

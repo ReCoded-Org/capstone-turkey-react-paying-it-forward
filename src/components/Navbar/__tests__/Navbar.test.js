@@ -15,7 +15,7 @@ test('Check Navbar in login status', () => {
     screen.getByText((content, element) => {
       return (
         element.tagName.toLowerCase() === 'span' &&
-        content.match(/donation for/i)
+        content.match(/donationFor/i)
       );
     }),
   ).toBeInTheDocument();
@@ -23,7 +23,7 @@ test('Check Navbar in login status', () => {
     screen.getByText((content, element) => {
       return (
         element.tagName.toLowerCase() === 'span' &&
-        content.match(/request for/i)
+        content.match(/requestFor/i)
       );
     }),
   ).toBeInTheDocument();
@@ -36,8 +36,8 @@ test('Check Navbar in logout status', () => {
     </BrowserRouter>,
   );
 
-  expect(screen.queryByText(/donation for/i)).not.toBeInTheDocument();
-  expect(screen.queryByText(/request for/i)).not.toBeInTheDocument();
+  expect(screen.queryByText(/donationFor/i)).not.toBeInTheDocument();
+  expect(screen.queryByText(/requestFor/i)).not.toBeInTheDocument();
 });
 
 test('Links in the Navbar', () => {
@@ -47,12 +47,12 @@ test('Links in the Navbar', () => {
     </BrowserRouter>,
   );
 
-  userEvent.click(screen.queryAllByText(/about us/i)[0]);
+  userEvent.click(screen.queryAllByText(/aboutUs/i)[0]);
   expect(window.location.pathname).toEqual('/about-us');
 
-  userEvent.click(screen.queryAllByText(/how it works?/i)[0]);
+  userEvent.click(screen.queryAllByText(/howItWorks?/i)[0]);
   expect(window.location.pathname).toEqual('/how-it-works');
 
-  userEvent.click(screen.queryAllByText(/logout/i)[0]);
+  userEvent.click(screen.queryAllByText(/logOut/i)[0]);
   expect(window.location.pathname).toEqual('/logout');
 });

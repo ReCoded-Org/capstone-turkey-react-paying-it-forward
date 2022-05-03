@@ -1,12 +1,15 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { LOG_IN } from '../../routes';
 import logoc from '../../assets/images/logoc.png';
 import Light from '../../assets/images/Light.png';
 
 export default function Signup() {
+  const { t } = useTranslation(['common']);
+  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <Formik
       initialValues={{
@@ -42,7 +45,7 @@ export default function Signup() {
                 <div className="text-primary m-6">
                   <div className="flex items-center mt-3 ">
                     <h1 className="text-left text-6xl font-bold text-primary mx-[40px] mt-16 mb-0">
-                      Sign Up
+                      {t('signUp')}
                     </h1>
                   </div>
                   <Form className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6">
@@ -54,7 +57,7 @@ export default function Signup() {
                             aria-label="Email"
                             className="hidden"
                           >
-                            Email
+                            {t('email')}
                           </label>
                           <input
                             {...field}
@@ -103,7 +106,7 @@ export default function Signup() {
                             aria-label="Password"
                             className="hidden"
                           >
-                            Password
+                            {t('password')}
                           </label>
                           <input
                             {...field}
@@ -152,7 +155,7 @@ export default function Signup() {
                             aria-label="Password"
                             className="hidden"
                           >
-                            Password
+                            {t('password')}
                           </label>
                           <input
                             {...field}
@@ -173,13 +176,13 @@ export default function Signup() {
                         className="w-3  ml-2 h-3 text-[#FF7338] bg-gray-100 rounded border-gray-300 focus:ring-[#FF7338] dark:focus:ring-[#FF7338] dark:ring-offset-[#FF7338] focus:ring-2 dark:bg-[#FF7338] dark:border-[#FF7338]"
                       />
                       <p className="text-sm ml-3">
-                        I accept
+                        {t('accept')}
                         <Link
                           to={LOG_IN}
                           className="text-black font-bold hover:underline text-sm font-small"
                         >
                           {'    '}
-                          Terms & Conditions
+                          {t('TermsConditions')}
                         </Link>
                       </p>
                     </div>
@@ -188,17 +191,17 @@ export default function Signup() {
                       className="bg-[#ff4848] text-md hover:bg-[#FF7338] w-80 h-12 text-white font-bold justify-center border border-blue rounded-2xl focus:outline-none focus:border-[#FF7338]"
                       value="Login"
                     >
-                      Sign Up
+                      {t('signUp')}
                     </button>
                     <div className="mt-4 text-center">
                       <p className="text-sm">
-                        Already have an account?
+                        {t('Alreadyhaveanaccount')}
                         <Link
                           to={LOG_IN}
                           className="text-black hover:underline font-bold"
                         >
                           {'    '}
-                          Sign In!
+                          {t('signIn')}
                         </Link>
                       </p>
                     </div>

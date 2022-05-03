@@ -1,18 +1,17 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+import { useTranslation } from 'react-i18next';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Please add a valid email'),
 });
 
 function SubscriptionForm() {
-  const { i18n, t } = useTranslation(["common"]);
+  const { t } = useTranslation(['common']);
   return (
     <div className="md:px-0 md:mt-10 w-full md:block md:mx-2 lg:mr-8 ">
       <h1 className="text-[#FFFF] mb-2 text-md  ml-[2px]">
-        {t("subscribeform")}
+        {t('subscribeform')}
       </h1>
       <Formik
         className=""
@@ -29,7 +28,7 @@ function SubscriptionForm() {
                 className="bg-[#D8F4EC] text-[12px]  text-center text-[#FF7338] md:w-[140px] lg:w-[140px] h-[45px] rounded-l-lg font-small"
                 name="email"
                 type="email"
-                placeholder= {t("enterYourEmailAddress")}
+                placeholder={t('enterYourEmailAddress')}
                 data-testid="subscription"
               />
               <button
@@ -37,7 +36,7 @@ function SubscriptionForm() {
                 className="text-[#FF7338] bg-[#FFFF] md:w-[85px] lg:w-[90px] h-[45px] rounded-r-lg"
                 data-testid="subscriptionButton"
               >
-                {t("subscribe")}
+                {t('subscribe')}
               </button>
             </div>
             <div className=" lg:p-2 lg:ml-[20px]">
@@ -45,7 +44,7 @@ function SubscriptionForm() {
                 <div data-testid="error">{errors.email}</div>
               ) : (
                 <div id="sub" className="hidden">
-                {t("subscribed")}
+                  {t('subscribed')}
                 </div>
               )}
             </div>

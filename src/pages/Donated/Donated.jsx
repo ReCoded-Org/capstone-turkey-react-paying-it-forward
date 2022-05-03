@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+import { useTranslation } from 'react-i18next';
 
 import DonatedList from './DonatedList';
 import Filter from './Filter';
@@ -12,7 +11,7 @@ function Donated() {
 
   const [msg, setMsg] = useState('');
   const modelRef = useRef();
-  const { i18n, t } = useTranslation(["common"]);
+  const { t } = useTranslation(['common']);
 
   const filterBy = (p) => {
     setSearchParams({ filter: p });
@@ -35,7 +34,7 @@ function Donated() {
     <>
       <img src={donateImg} alt="Donate Logo" className="mx-auto mt-8" />
       <h1 className="text-[#212121] font-bold text-4xl my-2">
-        {t("availableItems")}
+        {t('availableItems')}
       </h1>
       <Filter filterBy={filterBy} searchParams={searchParams.get('filter')} />
       <DonatedList
@@ -65,7 +64,7 @@ function Donated() {
               </svg>
             </div>
             <h3 className="text-lg leading-6 font-medium text-gray-900">
-            {t("successful")}
+              {t('successful')}
             </h3>
             <div className="mt-2 px-7 py-3">
               <p className="text-sm text-gray-500">{msg}</p>
@@ -78,7 +77,7 @@ function Donated() {
                 }}
                 className="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
               >
-               {t("ok")}
+                {t('ok')}
               </button>
             </div>
           </div>
@@ -101,7 +100,7 @@ function Donated() {
               </svg>
             </div>
             <h3 className="text-lg leading-6 font-medium text-red-600">
-            {t("error")}
+              {t('error')}
             </h3>
             <div className="mt-2 px-7 py-3">
               <p className="text-sm text-gray-500">{t(msg)}</p>
@@ -114,7 +113,7 @@ function Donated() {
                 }}
                 className="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
               >
-                {t("ok")}
+                {t('ok')}
               </button>
             </div>
           </div>

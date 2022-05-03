@@ -1,6 +1,7 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useTranslation } from 'react-i18next';
 
 const DonatorsData = [
   {
@@ -35,6 +36,7 @@ const DonatorsData = [
   },
 ];
 function Donators() {
+  const { t } = useTranslation(['common']);
   const settings = {
     focusOnSelect: true,
     dots: false,
@@ -81,7 +83,7 @@ function Donators() {
   };
   return (
     <div className="bg-[#D8F4EC] min-h-[500px] md:min-h-[175px] rounded-3xl py-8 mx-7">
-      <h1 className=" mb-16 text-xl font-bold">Donators</h1>
+      <h1 className=" mb-16 text-xl font-bold">{t('donators')}</h1>
       <Slider className="mt-3" {...settings}>
         {DonatorsData.map((Donator) => (
           <div className="w-full" key={Donator.id}>

@@ -8,7 +8,7 @@ import App from './App';
 /*  eslint-disable no-unused-vars */
 import * as serviceWorker from './serviceWorker';
 import store from './store';
-import "./i18n";
+import './i18n';
 
 ReactDOM.render(
   <React.StrictMode>

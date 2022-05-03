@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import PropTypes from 'prop-types';
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+import { useTranslation } from 'react-i18next';
 
 import './custom-animation.css';
 
@@ -14,7 +13,7 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { i18n, t } = useTranslation(["common"]);
+  const { t } = useTranslation(['common']);
 
   const openModal = (itemId) => {
     fetch(`https://payingitforward.re-coded.com/api/requests/${itemId}`)
@@ -54,7 +53,7 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
         }}
         animationDuration={800}
       >
-        {loading && <div className="mt-4">{t("loading")}</div>}
+        {loading && <div className="mt-4">{t('loading')}</div>}
         {!loading && (
           <div>
             <div className="object-cover flex justify-center mt-2">
@@ -66,17 +65,17 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
             </div>
             <div className="ml-10 flex flex-col justify-center items-center">
               <div className="flex justify-center mt-1 font-bold text-amber-700">
-                {t("itemName")}
+                {t('itemName')}
               </div>
               <div className="flex justify-center mt-1">{items.name}</div>
               <div className="flex justify-center mt-1 font-bold text-amber-700">
-                {t("description")}
+                {t('description')}
               </div>
               <div className="flex justify-center mt-1">
                 {items.description}
               </div>
               <div className="flex justify-center mt-1 font-bold text-amber-700">
-                {t("itemOwnerInformation")}
+                {t('itemOwnerInformation')}
               </div>
               <div className="flex justify-center mt-1">
                 {users.firstName} {users.lastName}
@@ -105,7 +104,7 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
                     fill="#fff"
                   />
                 </svg>
-                <span className="font-bold text-4sm ml-2"> {t("donate")} </span>
+                <span className="font-bold text-4sm ml-2"> {t('donate')} </span>
               </button>
             </div>
           </div>

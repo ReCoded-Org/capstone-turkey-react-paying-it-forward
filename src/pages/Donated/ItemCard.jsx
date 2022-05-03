@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+import { useTranslation } from 'react-i18next';
 
 const customStyles = {
   content: {
@@ -20,7 +19,7 @@ function ItemCard({ data, onResponse }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { i18n, t } = useTranslation(["common"]);
+  const { t } = useTranslation(['common']);
 
   function openModal(id) {
     fetch(`https://payingitforward.re-coded.com/api/items/${id}`)
@@ -211,7 +210,7 @@ function ItemCard({ data, onResponse }) {
                 />
               </svg>
             )}
-            {t("makeRequest")}
+            {t('makeRequest')}
           </button>
         </div>
       </div>
@@ -226,7 +225,7 @@ function ItemCard({ data, onResponse }) {
             x
           </button>
         </div>
-        {loading && <div>{t("loading")}</div>}
+        {loading && <div>{t('loading')}</div>}
         {!loading && (
           <div
             id="extralarge-modal"
@@ -242,28 +241,24 @@ function ItemCard({ data, onResponse }) {
             </div>
             <div className="ml-2 my-10 flex flex-col">
               <div className="flex justify-center mt-1 font-bold text-lg text-[#FF7338]">
-                
-                {t("itemName")} 
+                {t('itemName')}
               </div>
               <div className="flex justify-center mt-1">{data.name}</div>
               <div className="flex justify-center mt-1 text-lg font-bold text-[#FF7338]">
-                
-                {t("description")} 
+                {t('description')}
               </div>
               <div className="flex justify-center mt-1">{data.description}</div>
               <div className="flex justify-center text-lg mt-1 font-bold text-[#FF7338]">
-                
-                {t("categories")} 
+                {t('categories')}
               </div>
               <div className="flex justify-center mt-1">{data.type}</div>
               <div className="flex justify-center text-lg mt-1 font-bold text-[#FF7338]">
-                
-                {t("count")} 
+                {t('count')}
               </div>
               <div className="flex justify-center my-4 mt-1">{data.count}</div>
               <div className="flex justify-center text-lg mt-1 font-bold text-[#FF7338]">
                 {' '}
-                {t("itemOwnerInformation")}
+                {t('itemOwnerInformation')}
               </div>
               <div className="flex justify-center mt-1">
                 {data.owner.firstName} {data.owner.lastName}
@@ -294,7 +289,9 @@ function ItemCard({ data, onResponse }) {
                     fill="#fff"
                   />
                 </svg>
-                <span className="font-bold text-4sm ml-2"> {t("makeRequest")} </span>
+                <span className="font-bold text-4sm ml-2">
+                  {t('makeRequest')}
+                </span>
               </button>
             </div>
           </div>
