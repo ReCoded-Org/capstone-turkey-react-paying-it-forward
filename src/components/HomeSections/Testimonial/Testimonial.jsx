@@ -16,7 +16,9 @@ function Testimonial() {
     centerMode: true,
     adaptiveHeight: true,
     fade: true,
-    arrows: true,
+    arrows: false,
+    dots: true,
+    autoplay: true,
     className: 'react__slick__slider__parent',
     responsive: [
       {
@@ -54,7 +56,7 @@ function Testimonial() {
   return (
     <div className="min-h-[225px] md:min-h-[225px] p-3 my-6">
       <h1 className="my-12 text-xl font-bold"> Our Testimonial </h1>
-      <Slider className="flex gap-6 my-6 mx-3 " {...settings}>
+      <Slider className="flex gap-6 my-6 mx-3" {...settings}>
         {texts.map((text) => (
           <h3 className="sm:gap-4" key={text}>
             {text}

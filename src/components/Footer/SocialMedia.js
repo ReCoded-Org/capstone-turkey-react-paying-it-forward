@@ -24,7 +24,7 @@ function SocialMedia() {
               />
             </svg>
           </a>
-          <a href="#!" className="mr-4 text-gray-800">
+          <a href="#!" className="mr-4">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -41,7 +41,7 @@ function SocialMedia() {
               />
             </svg>
           </a>
-          <a href="#!" className="mr-4 text-gray-800">
+          <a href="#!" className="mr-4">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -58,7 +58,7 @@ function SocialMedia() {
               />
             </svg>
           </a>
-          <a href="#!" className="mr-4 text-gray-800">
+          <a href="#!" className="mr-4">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -75,7 +75,7 @@ function SocialMedia() {
               />
             </svg>
           </a>
-          <a href="#!" className="text-gray-800">
+          <a href="#!" className="">
             <svg
               aria-hidden="true"
               focusable="false"
