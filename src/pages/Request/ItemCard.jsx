@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 import RequestModalItem from './RequestModalItem';
 
 function ItemCard({ data, onResponse }) {
   const [isLoading, setLoading] = useState(false);
   const [compIsShown, setModalIsShown] = useState(false);
+
+  const { i18n, t } = useTranslation(["common"]);
 
   const onDonateItemClick = () => {
     setLoading(true);
@@ -69,7 +73,7 @@ function ItemCard({ data, onResponse }) {
                 fill="#fff"
               />
             </svg>
-            <span className="font-bold text-4sm ml-2">Donate</span>
+            <span className="font-bold text-4sm ml-2">{t("donate")}</span>
             {isLoading && (
               <svg
                 className="animate-spin ml-2 h-4 w-4 text-white"

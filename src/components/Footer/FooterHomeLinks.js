@@ -1,24 +1,27 @@
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import { ABOUT_US, QA, ITEMS, DONATORS, PRICING } from '../../routes';
 
 function FooterHomeLinks() {
+  const { i18n, t } = useTranslation(["common"]);
   return (
     <div className=" lg:text-[15px] lg:text-[#FFFFFF] lg:mr-[50px] sm:invisible md:invisible lg:visible">
-      <h5 className="lg:font-bold mb-1">Home</h5>
+      <h5 className="lg:font-bold mb-1">{t("home")}</h5>
       <ul className="list-none mb-0">
         <li>
-          <a href={ITEMS}>Items</a>
+          <a href={ITEMS}>{t("items")}</a>
         </li>
         <li>
-          <a href={DONATORS}>Donators</a>
+          <a href={DONATORS}>{t("donators")}</a>
         </li>
         <li>
-          <a href={PRICING}>Pricing</a>
+          <a href={PRICING}>{t("pricing")}</a>
         </li>
         <li>
-          <a href={ABOUT_US}>About Us</a>
+          <a href={ABOUT_US}> {t("aboutUs")} </a>
         </li>
         <li>
-          <a href={QA}>QA</a>
+          <a href={QA}>{t("QA")}</a>
         </li>
       </ul>
     </div>

@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { sortByDate } from './requestSlice';
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 function Filter({ filterBy, searchParams }) {
   const { type, sortOrder } = useSelector((state) => state.requestedItems);
   const dispatch = useDispatch();
+
+  const { i18n, t } = useTranslation(["common"]);
 
   const handleFilter = (filterTerm) => {
     filterBy(filterTerm);
@@ -23,7 +27,7 @@ function Filter({ filterBy, searchParams }) {
           onClick={() => handleFilter(itemType)}
           onKeyDown={() => handleFilter(itemType)}
         >
-          {itemType}
+          {t(itemType)}
         </button>
       </li>
     );
@@ -41,7 +45,7 @@ function Filter({ filterBy, searchParams }) {
           }}
           type="button"
         >
-          Date
+          {t("date")}
           <svg
             className={`fill-current h-4 w-4 ${
               sortOrder === 'ASC' ? '' : 'rotate-180'
