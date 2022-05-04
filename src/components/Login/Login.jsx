@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { SIGN_UP, HOME } from '../../routes';
 import { login } from '../../utils/UserAPI';
@@ -13,6 +14,9 @@ export default function Login() {
   const dispatch = useDispatch();
   const { isSuccessLogin } = useSelector((state) => state.user);
   const navigate = useNavigate();
+
+  const { t } = useTranslation(['common']);
+  /* eslint-disable react/jsx-props-no-spreading */
 
   useEffect(() => {
     if (isSuccessLogin) {
@@ -48,7 +52,7 @@ export default function Login() {
                 <div className="text-primary m-6 sm:items-center">
                   <div className="flex items-center mt-3 ">
                     <h1 className="text-left text-6xl font-bold text-primary mx-[40px] mt-16 mb-0">
-                      Sign In
+                      {t('signIn')}
                     </h1>
                   </div>
                   <Form className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6">
@@ -61,7 +65,7 @@ export default function Login() {
                             aria-label="Email"
                             className="hidden"
                           >
-                            Email
+                            {t('email')}
                           </label>
                           <input
                             {...field}
@@ -110,7 +114,7 @@ export default function Login() {
                             aria-label="Password"
                             className="hidden"
                           >
-                            Password
+                            {t('password')}
                           </label>
                           <input
                             {...field}
@@ -162,7 +166,7 @@ export default function Login() {
                         htmlFor="checkbox-3"
                         className="text-sm font-small ml-3 text-gray-900 dark:text-gray-300"
                       >
-                        Remember me!
+                        {t('Rememberme')}
                       </label>
                     </div>
                     <button
@@ -170,17 +174,17 @@ export default function Login() {
                       className="bg-[#ff4848] text-md hover:bg-[#FF7338] w-80 h-12 text-white font-bold justify-center border border-blue rounded-2xl focus:outline-none focus:border-[#FF7338]"
                       value="Login"
                     >
-                      Sign In
+                      {t('signIn')}
                     </button>
                     <div className="mt-4 text-center">
                       <p className="text-sm">
-                        Do not have an account yet?
+                        {t('accountyet')}
                         <Link
                           to={SIGN_UP}
                           className="text-black hover:underline font-bold"
                         >
                           {'    '}
-                          Sign Up!
+                          {t('signUp')}
                         </Link>
                       </p>
                     </div>

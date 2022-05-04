@@ -11,21 +11,26 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import donatedSlice from './pages/Donated/donatedSlice';
+import requestsSlice from './pages/Request/requestSlice';
 import userReducer from './utils/userSlice';
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  blacklist: ['donated', 'requestedItems'],
 };
 
 const rootReducer = combineReducers({
   user: userReducer,
+  donated: donatedSlice,
+  requestedItems: requestsSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = configureStore({
+const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -36,3 +41,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+export default store;
