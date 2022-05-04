@@ -1,14 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
+import store from '../../../store';
 import Navbar from '../Navbar';
 
 test('Check Navbar in login status', () => {
   render(
-    <BrowserRouter>
-      <Navbar isLogin />
-    </BrowserRouter>,
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar isLogin />
+      </BrowserRouter>
+    </Provider>,
   );
 
   expect(
@@ -30,9 +34,11 @@ test('Check Navbar in login status', () => {
 
 test('Check Navbar in logout status', () => {
   render(
-    <BrowserRouter>
-      <Navbar isLogin={false} />
-    </BrowserRouter>,
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar isLogin={false} />
+      </BrowserRouter>
+    </Provider>,
   );
 
   expect(screen.queryByText(/donationFor/i)).not.toBeInTheDocument();
@@ -41,9 +47,11 @@ test('Check Navbar in logout status', () => {
 
 test('Links in the Navbar', () => {
   render(
-    <BrowserRouter>
-      <Navbar isLogin />
-    </BrowserRouter>,
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar isLogin />
+      </BrowserRouter>
+    </Provider>,
   );
 
   userEvent.click(screen.queryAllByText(/aboutUs/i)[0]);
