@@ -56,13 +56,13 @@ export default function Login() {
                     </h1>
                   </div>
                   <Form className="flex flex-col p-5 mt-5 space-y-4 text-black bg-white rounded-lg lg:p-10 lg:space-y-6">
-                    <Field name="email">
+                    <Field name="username">
                       {({ field, form }) => (
                         <div className="relative">
                           <label
                             id="username"
-                            htmlFor="email"
-                            aria-label="Email"
+                            htmlFor="username"
+                            aria-label="Username"
                             className="hidden"
                           >
                             {t('email')}
@@ -70,12 +70,12 @@ export default function Login() {
                           <input
                             {...field}
                             className="w-full h-[48px] p-4 font-semibold placeholder-gray-500 border rounded-lg outline-none lg:px-8 focus:ring-accent-blue focus:ring-1"
-                            placeholder="Email"
+                            placeholder="User name"
                             type="text"
-                            name="email"
-                            id="email1"
+                            name="username"
+                            id="username"
                             style={
-                              form.touched.email && form.errors.email
+                              form.touched.username && form.errors.username
                                 ? { border: '2px solid var(--primary-red)' }
                                 : null
                             }
@@ -86,7 +86,7 @@ export default function Login() {
                             fill="currentColor"
                             className="absolute w-6 text-red-400 right-8 top-2.5"
                             style={
-                              form.touched.email && form.errors.email
+                              form.touched.usernamef && form.errors.usernamef
                                 ? { display: 'block' }
                                 : { display: 'none' }
                             }
@@ -101,7 +101,7 @@ export default function Login() {
                       )}
                     </Field>
                     <ErrorMessage
-                      name="email"
+                      name="usernamef"
                       component="div"
                       className="text-xs italic text-left text-red-700"
                       style={{ marginTop: '0.5rem' }}

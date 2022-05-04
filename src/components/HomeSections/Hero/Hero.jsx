@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useTranslation } from 'react-i18next';
 
+import { useNavigate } from 'react-router-dom';
 import donate from '../../../assets/Home/donate.svg';
 import request from '../../../assets/Home/request.svg';
 
@@ -20,6 +21,8 @@ function Hero() {
   const slideRef = useRef();
   const { t } = useTranslation(['common']);
 
+  const navigate = useNavigate();
+
   const handleOnNextClick = () => {
     count = (count + 1) % featuredProducts.length;
     setCurrentIndex(count);
@@ -30,6 +33,13 @@ function Hero() {
     count = (currentIndex + productsLength - 1) % productsLength;
     setCurrentIndex(count);
     slideRef.current.classList.add('fade-anim');
+  };
+  const handleClickBtn = () => {
+    if (button[currentIndex] === 'Donation') {
+      navigate('/donation');
+    } else {
+      navigate('/request');
+    }
   };
 
   const removeAnimation = () => {
@@ -71,6 +81,7 @@ function Hero() {
         <p className="">{t(paragraph[currentIndex])}</p>
         <button
           type="button"
+          onClick={handleClickBtn}
           className="bg-[#FF4848E8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-white font-bold py-4 w-[40%] mt-4 rounded-xl text-2xl tracking-wider mb-4"
         >
           {t(button[currentIndex])}

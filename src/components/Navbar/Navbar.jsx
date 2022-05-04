@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import { useDispatch } from 'react-redux';
 
 import iconProfile from '../../assets/images/profile.svg';
 import {
@@ -13,22 +14,21 @@ import {
   REQUEST,
   SIGN_UP,
 } from '../../routes';
+import { loginOut } from '../../utils/userSlice';
 
 function Navbar({ isLogin }) {
   const [lang, setLang] = useState('en');
 
   const menu = useRef();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const logOut = (e) => {
     e.preventDefault();
-
-    // Todo
-    // Implement logout based on User Store function
-
+    dispatch(loginOut());
     setTimeout(() => {
       navigate('/');
-    }, 3000);
+    }, 2000);
   };
 
   const { i18n, t } = useTranslation(['common']);

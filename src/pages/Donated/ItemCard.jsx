@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+// import axios from 'axios';
 
 const customStyles = {
   content: {
@@ -19,6 +21,8 @@ function ItemCard({ data, onResponse }) {
   const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation(['common']);
 
+  const { token } = useSelector((state) => state.user);
+
   function openModal() {
     setIsOpen(true);
   }
@@ -27,13 +31,45 @@ function ItemCard({ data, onResponse }) {
     setIsOpen(false);
   }
 
+  // const onRequestDonatedItem = () => {
+  //   setLoading(true);
+
+  //   axios.post(`http://payingitforward.re-coded.com/api/requests`, JSON.stringify({
+  //     _id: data._id,
+  //     name: data.name,
+  //     description: data.description,
+  //     type: data.type,
+  //     photo: data.photo,
+  //   }), {
+  //     credentials: 'same-origin',
+  //     headers: {
+  //       'Cookie': `token=${token}`
+  //     }
+  //   })
+  //     .then(() => {
+  //       onResponse({
+  //         status: 'success',
+  //         message: 'Thank you for helping people',
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       onResponse({ status: 'failed', message: error.response.data.message });
+  //     }).finally(() => {
+  //       setLoading(false);
+  //     });
+
+  // };
+
   const onRequestDonatedItem = () => {
     setLoading(true);
 
     fetch(`${process.env.REACT_APP_API_URI}/requests`, {
       headers: {
         accept: 'application/json',
+        cookie: `tokesn=${token};`,
       },
+      credentials: 'include',
       body: JSON.stringify({
         _id: data._id,
         name: data.name,

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Suspense } from 'react';
+import { useSelector } from 'react-redux';
 
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
@@ -25,11 +26,13 @@ import {
 import Team from './pages/Team/Team';
 
 export default function App() {
+  const { isSuccessLogin } = useSelector((state) => state.user);
+
   return (
     <div className="App">
       <Suspense fallback={null}>
         <BrowserRouter>
-          <Navbar isLogin />
+          <Navbar isLogin={isSuccessLogin} />
           <Routes>
             <Route index element={<Home />} />
             <Route path={DONATION} element={<Donated />} />

@@ -27,7 +27,7 @@ export const userSlice = createSlice({
       _id: '625afbf7ed3c326017ee91ce',
       username: 'anne.adams1',
       email: 'annadams_test@gmail.com',
-      firstName: 'AdamTT',
+      firstName: 'Jennifer',
       lastName: 'Adams',
       address: '425 Main Street, California, 10457',
       isDonator: false,
@@ -87,6 +87,7 @@ export const {
   registerStart,
   registerSuccess,
   registerFailure,
+  loginOut,
 } = userSlice.actions;
 
 export default userSlice.reducer;
