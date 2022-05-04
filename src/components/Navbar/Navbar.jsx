@@ -1,6 +1,8 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
 import iconProfile from '../../assets/images/profile.svg';
 import {
@@ -27,6 +29,18 @@ function Navbar({ isLogin }) {
     setTimeout(() => {
       navigate('/');
     }, 3000);
+  };
+
+  const { i18n, t } = useTranslation(['common']);
+
+  useEffect(() => {
+    if (localStorage.getItem('i18nextLng')?.length > 1) {
+      i18next.changeLanguage('en');
+    }
+  }, []);
+
+  const handleLanguageChange = (language) => {
+    i18n.changeLanguage(language);
   };
 
   return (
@@ -105,7 +119,7 @@ function Navbar({ isLogin }) {
                   to={HOME}
                   className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Home
+                  {t('home')}
                 </Link>
 
                 {isLogin && (
@@ -115,7 +129,7 @@ function Navbar({ isLogin }) {
                         type="button"
                         className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium py-2 rounded inline-flex items-center"
                       >
-                        <span className="mr-1">Donation For</span>
+                        <span className="mr-1">{t('donationFor')}</span>
                         <svg
                           className="fill-current h-4 w-4"
                           xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +144,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={DONATION}
                           >
-                            Books
+                            {t('books')}
                           </Link>
                         </li>
                         <li>
@@ -138,7 +152,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={DONATION}
                           >
-                            Stationery
+                            {t('stationery')}
                           </Link>
                         </li>
                         <li>
@@ -146,7 +160,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={DONATION}
                           >
-                            Furniture
+                            {t('furniture')}
                           </Link>
                         </li>
                         <li>
@@ -154,7 +168,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={DONATION}
                           >
-                            School Books
+                            {t('schoolBooks')}
                           </Link>
                         </li>
                         <li>
@@ -162,7 +176,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={DONATION}
                           >
-                            Novels
+                            {t('novels')}
                           </Link>
                         </li>
                         <li>
@@ -170,7 +184,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={DONATION}
                           >
-                            Exam Books
+                            {t('examBooks')}
                           </Link>
                         </li>
                       </ul>
@@ -180,7 +194,7 @@ function Navbar({ isLogin }) {
                         type="button"
                         className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium py-2 rounded inline-flex items-center"
                       >
-                        <span className="mr-1">Request For</span>
+                        <span className="mr-1">{t('requestFor')}</span>
                         <svg
                           className="fill-current h-4 w-4"
                           xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +209,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={REQUEST}
                           >
-                            Books
+                            {t('books')}
                           </Link>
                         </li>
                         <li>
@@ -203,7 +217,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={REQUEST}
                           >
-                            Stationery
+                            {t('stationery')}
                           </Link>
                         </li>
                         <li>
@@ -211,7 +225,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={REQUEST}
                           >
-                            Furniture
+                            {t('furniture')}
                           </Link>
                         </li>
                         <li>
@@ -219,7 +233,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={REQUEST}
                           >
-                            School Books
+                            {t('schoolBooks')}
                           </Link>
                         </li>
                         <li>
@@ -227,7 +241,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={REQUEST}
                           >
-                            Novels
+                            {t('novels')}
                           </Link>
                         </li>
                         <li>
@@ -235,7 +249,7 @@ function Navbar({ isLogin }) {
                             className="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 block whitespace-no-wrap"
                             to={REQUEST}
                           >
-                            Exam Books
+                            {t('examBooks')}
                           </Link>
                         </li>
                       </ul>
@@ -247,20 +261,20 @@ function Navbar({ isLogin }) {
                   to={HOW_IT_WORKS}
                   className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  How it works?
+                  {t('howItWorks')}
                 </Link>
                 <Link
                   to={ABOUT_US}
                   className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  About Us
+                  {t('aboutUs')}
                 </Link>
                 {!isLogin && (
                   <Link
                     to={SIGN_UP}
                     className="text-white hover:bg-amber-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Sign up
+                    {t('signUp')}
                   </Link>
                 )}
 
@@ -279,7 +293,7 @@ function Navbar({ isLogin }) {
                           type="button"
                           onClick={logOut}
                         >
-                          Logout
+                          {t('logOut')}
                         </button>
                       </li>
                     </ul>
@@ -291,8 +305,10 @@ function Navbar({ isLogin }) {
                   onClick={() => {
                     if (lang === 'en') {
                       setLang('tr');
+                      handleLanguageChange('tr');
                     } else {
                       setLang('en');
+                      handleLanguageChange('en');
                     }
                   }}
                 >
@@ -327,7 +343,7 @@ function Navbar({ isLogin }) {
             to={HOME}
             className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Home
+            {t('home')}
           </Link>
           {isLogin && (
             <>
@@ -335,13 +351,13 @@ function Navbar({ isLogin }) {
                 to={DONATION}
                 className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
-                Donation For
+                {t('donationFor')}
               </Link>
               <Link
                 to={REQUEST}
                 className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
-                Request For
+                {t('requestFor')}
               </Link>
             </>
           )}
@@ -349,20 +365,20 @@ function Navbar({ isLogin }) {
             to={HOW_IT_WORKS}
             className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            How it works?
+            {t('howItWorks')}
           </Link>
           <Link
             to={ABOUT_US}
             className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            About Us
+            {t('aboutUs')}
           </Link>
           {!isLogin && (
             <Link
               to={SIGN_UP}
               className="text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              Sign up
+              {t('signUp')}
             </Link>
           )}
           {isLogin && (
@@ -371,7 +387,7 @@ function Navbar({ isLogin }) {
               onClick={logOut}
               className="w-full text-white hover:bg-amber-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              Logout
+              {t('logOut')}
             </button>
           )}
         </div>

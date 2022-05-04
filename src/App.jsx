@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Suspense } from 'react';
 import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
@@ -25,21 +26,23 @@ import Team from './pages/Team/Team';
 export default function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar isLogin />
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path={DONATION} element={<Donated />} />
-          <Route path={REQUEST} element={<Request />} />
-          <Route path={SIGN_UP} element={<Signup />} />
-          <Route path={LOG_IN} element={<Login />} />
-          <Route path={ABOUT_US} element={<Team />} />
-          <Route path={CONTACT_US} element={<ContactUs />} />
-          <Route path={QA} element={<Faq />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <Suspense fallback={null}>
+        <BrowserRouter>
+          <Navbar isLogin />
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path={DONATION} element={<Donated />} />
+            <Route path={REQUEST} element={<Request />} />
+            <Route path={SIGN_UP} element={<Signup />} />
+            <Route path={LOG_IN} element={<Login />} />
+            <Route path={ABOUT_US} element={<Team />} />
+            <Route path={CONTACT_US} element={<ContactUs />} />
+            <Route path={QA} element={<Faq />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </Suspense>
     </div>
   );
 }

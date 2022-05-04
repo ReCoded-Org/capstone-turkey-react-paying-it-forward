@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import RequestList from './RequestList';
 import Filter from './Filter';
@@ -9,6 +10,8 @@ function Request() {
   const [searchParams, setSearchParams] = useSearchParams({ filter: 'All' });
   const [msg, setMsg] = useState('');
   const modelRef = useRef();
+
+  const { t } = useTranslation(['common']);
 
   const filterTerm =
     searchParams.get('filter') === null ? 'All' : searchParams.get('filter');
@@ -33,7 +36,9 @@ function Request() {
   return (
     <>
       <img src={donateImg} alt="Donate Logo" className="mx-auto mt-8" />
-      <h1 className="text-[#212121] font-bold text-4xl my-2">Needed Items</h1>
+      <h1 className="text-[#212121] font-bold text-4xl my-2">
+        {t('neededItems')}
+      </h1>
       <Filter filterBy={filterBy} searchParams={filterTerm} />
       <RequestList searchParams={filterTerm} handleResponse={handleResponse} />
       <div
@@ -59,10 +64,10 @@ function Request() {
               </svg>
             </div>
             <h3 className="text-lg leading-6 font-medium text-gray-900">
-              Successful!
+              {t('successful')}
             </h3>
             <div className="mt-2 px-7 py-3">
-              <p className="text-sm text-gray-500">{msg}</p>
+              <p className="text-sm text-gray-500">{t(msg)}</p>
             </div>
             <div className="items-center px-4 py-3">
               <button
@@ -72,7 +77,7 @@ function Request() {
                 }}
                 className="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
               >
-                OK
+                {t('ok')}
               </button>
             </div>
           </div>
@@ -95,10 +100,10 @@ function Request() {
               </svg>
             </div>
             <h3 className="text-lg leading-6 font-medium text-red-600">
-              Error!
+              {t('error')}
             </h3>
             <div className="mt-2 px-7 py-3">
-              <p className="text-sm text-gray-500">{msg}</p>
+              <p className="text-sm text-gray-500">{t(msg)}</p>
             </div>
             <div className="items-center px-4 py-3">
               <button
@@ -108,7 +113,7 @@ function Request() {
                 }}
                 className="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
               >
-                OK
+                {t('ok')}
               </button>
             </div>
           </div>

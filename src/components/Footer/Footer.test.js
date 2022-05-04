@@ -50,10 +50,10 @@ describe('Pass valid email to email input field', () => {
       </BrowserRouter>,
     );
 
-    expect(screen.getByText('Items')).toHaveAttribute('href', '/items');
-    expect(screen.getByText('Donators')).toHaveAttribute('href', '/donators');
-    expect(screen.getByText('Pricing')).toHaveAttribute('href', '/pricing');
-    expect(screen.getByText('About Us')).toHaveAttribute('href', '/about-us');
+    expect(screen.getByText('items')).toHaveAttribute('href', '/items');
+    expect(screen.getByText('donators')).toHaveAttribute('href', '/donators');
+    expect(screen.getByText('pricing')).toHaveAttribute('href', '/pricing');
+    expect(screen.getByText('aboutUs')).toHaveAttribute('href', '/about-us');
     expect(screen.getByText('QA')).toHaveAttribute('href', '/qa');
 
     expect(screen.getByText('Kutay Kağan Özen')).toHaveAttribute(

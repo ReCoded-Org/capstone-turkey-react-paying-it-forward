@@ -5,7 +5,7 @@ test('Check entering in the inputs fields', async () => {
   render(<ContactUs />);
 
   await wait(() => {
-    fireEvent.click(screen.queryByText(/send message/i));
+    fireEvent.click(screen.queryByText(/sendMessage/i));
   });
 
   expect(screen.getByText(/name is required/i)).toBeInTheDocument();
@@ -15,7 +15,7 @@ test('Check entering in the inputs fields', async () => {
   ).toBeInTheDocument();
 
   await wait(() => {
-    fireEvent.change(screen.queryByLabelText(/full name/i), {
+    fireEvent.change(screen.queryByLabelText(/fullName/i), {
       target: { value: 'Ahmed' },
     });
     fireEvent.change(screen.queryByLabelText(/email/i), {
@@ -29,7 +29,7 @@ test('Check entering in the inputs fields', async () => {
   expect(screen.getByText(/invalid email address format/i)).toBeInTheDocument();
 
   await wait(() => {
-    fireEvent.change(screen.queryByLabelText(/full name/i), {
+    fireEvent.change(screen.queryByLabelText(/fullName/i), {
       target: { value: 'Ahmed' },
     });
     fireEvent.change(screen.queryByLabelText(/email/i), {
@@ -38,10 +38,10 @@ test('Check entering in the inputs fields', async () => {
     fireEvent.change(screen.queryByLabelText(/message/i), {
       target: { value: 'Hello, World' },
     });
-    fireEvent.click(screen.queryByText(/send message/i));
+    fireEvent.click(screen.queryByText(/sendMessage/i));
   });
 
-  expect(screen.queryByLabelText(/full name/i).value).toBe('Ahmed');
+  expect(screen.queryByLabelText(/fullName/i).value).toBe('Ahmed');
   expect(screen.queryByLabelText(/email/i).value).toBe('ahmed@example.com');
   expect(screen.queryByLabelText(/message/i).value).toBe('Hello, World');
 });

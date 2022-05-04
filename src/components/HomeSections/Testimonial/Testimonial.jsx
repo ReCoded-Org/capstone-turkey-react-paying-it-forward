@@ -1,12 +1,11 @@
 import Slider from 'react-slick';
+import { useTranslation } from 'react-i18next';
 
-const texts = [
-  ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore .',
-  ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  .',
-  ' led it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-];
+const texts = ['reference'];
 
 function Testimonial() {
+  const { t } = useTranslation(['common']);
+
   const settings = {
     infinite: true,
     speed: 400,
@@ -53,13 +52,14 @@ function Testimonial() {
       },
     ],
   };
+  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div className="min-h-[225px] md:min-h-[225px] p-3 my-6">
-      <h1 className="my-12 text-xl font-bold"> Our Testimonial </h1>
+      <h1 className="my-12 text-xl font-bold"> {t('ourTestimonial')} </h1>
       <Slider className="flex gap-6 my-6 mx-3" {...settings}>
         {texts.map((text) => (
           <h3 className="sm:gap-4" key={text}>
-            {text}
+            {t(text)}
           </h3>
         ))}
       </Slider>
