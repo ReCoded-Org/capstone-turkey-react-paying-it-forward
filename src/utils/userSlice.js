@@ -1,10 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { generateToken } from './UserAPI';
+import sign from 'jwt-encode';
+
+const generateToken = (currentUser) => {
+  const payload = {
+    user: {
+      username: currentUser.username,
+      email: currentUser.email,
+      firstName: currentUser.firstName,
+      lastName: currentUser.lastName,
+      _id: currentUser._id,
+    },
+    iat: Math.floor(new Date().getTime() / 1000),
+    exp: Math.floor(new Date().getTime() / 1000) + 1209600,
+    sub: currentUser._id,
+  };
+
+  const token = sign(payload, process.env.REACT_APP_JWT_SECRET);
+
+  return token;
+};
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    currentUser: null,
+    currentUser: {
+      _id: '625afbf7ed3c326017ee91ce',
+      username: 'anne.adams1',
+      email: 'annadams_test@gmail.com',
+      firstName: 'AdamTT',
+      lastName: 'Adams',
+      address: '425 Main Street, California, 10457',
+      isDonator: false,
+    },
     isLoading: false,
     isSuccessLogin: false,
     isSuccessRegister: false,
@@ -44,6 +71,10 @@ export const userSlice = createSlice({
       state.isLoading = false;
       state.isError = true;
       state.isSuccessRegister = false;
+    },
+    loginOut: (state) => {
+      state.isSuccessLogin = false;
+      state.token = null;
     },
   },
 });

@@ -30,6 +30,10 @@
         "no-param-reassign":["off"],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "testing-library/prefer-screen-queries":["off"],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "no-underscore-dangle": "off",
+        "testing-library/no-node-access": "off",
+    	"testing-library/no-container": "off",
+    	"prefer-destructuring": ["error", {"object": true, "array": true}]
     }
 }

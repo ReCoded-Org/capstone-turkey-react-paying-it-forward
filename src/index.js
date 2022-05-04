@@ -5,7 +5,7 @@ import 'tw-elements';
 
 import './index.css';
 import App from './App';
-import { store } from './utils/store';
+import { store } from './store';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

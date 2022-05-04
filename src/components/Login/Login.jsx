@@ -11,14 +11,14 @@ import Light from '../../assets/images/Light.png';
 
 export default function Login() {
   const dispatch = useDispatch();
-  const { currentUser } = useSelector((state) => state.user);
+  const { isSuccessLogin } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentUser) {
-      // navigate(HOME);
+    if (isSuccessLogin) {
+      navigate(HOME);
     }
-  }, [currentUser, navigate]);
+  }, [isSuccessLogin, navigate]);
 
   return (
     <Formik
@@ -43,9 +43,6 @@ export default function Login() {
           <div className="w-full xl:w-3/4 lg:w-11/12 h-full flex">
             <figure className=" bg-white">
               <div className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1 sm:items-center">
-                <blockquote className="text-2xl sm:items-center font-medium text-center">
-                  {}
-                </blockquote>
                 <img
                   className="w-[109px] h-[95px] m-[-25x] mx-[20px]"
                   src={logoc}
