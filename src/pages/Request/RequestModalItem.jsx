@@ -56,14 +56,14 @@ function RequestModalItem({ id, setCompIsShown, onDonatedItem }) {
         {loading && <div className="mt-4">{t('loading')}</div>}
         {!loading && (
           <div>
-            <div className="object-cover flex justify-center mt-2">
+            <div className="object-cover flex justify-center mt-6">
               <img
                 alt={items.name}
                 src={items.photo}
                 style={{ width: '300px' }}
               />
             </div>
-            <div className="ml-10 flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center">
               <div className="flex justify-center mt-1 font-bold text-amber-700">
                 {t('itemName')}
               </div>

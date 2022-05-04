@@ -25,7 +25,7 @@ function SubscriptionForm() {
           <Form className="  w-full flex-column lg:mr-0">
             <div className=" flex">
               <Field
-                className="bg-[#D8F4EC] text-[12px]  text-center text-[#FF7338] md:w-[140px] lg:w-[140px] h-[45px] rounded-l-lg font-small"
+                className="bg-[#D8F4EC] text-[12px]  text-center text-[#FF7338] md:w-[140px] lg:w-[180px] h-[45px] rounded-l-lg font-small"
                 name="email"
                 type="email"
                 placeholder={t('enterYourEmailAddress')}
