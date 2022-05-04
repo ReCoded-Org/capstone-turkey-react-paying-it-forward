@@ -80,7 +80,7 @@ export default function Login() {
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
-                            className="absolute w-10 text-primary-red right-8 top-2.5"
+                            className="absolute w-6 text-red-400 right-8 top-2.5"
                             style={
                               form.touched.email && form.errors.email
                                 ? { display: 'block' }
@@ -99,7 +99,7 @@ export default function Login() {
                     <ErrorMessage
                       name="email"
                       component="div"
-                      className="text-xs italic text-right text-primary-red"
+                      className="text-xs italic text-left text-red-700"
                       style={{ marginTop: '0.5rem' }}
                     />
                     <Field name="password">
@@ -129,7 +129,7 @@ export default function Login() {
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
-                            className="absolute w-10 text-primary-red right-8 top-2.5"
+                            className="absolute w-6 text-red-400 right-8 top-2.5"
                             style={
                               form.touched.password && form.errors.password
                                 ? { display: 'block' }
@@ -148,7 +148,7 @@ export default function Login() {
                     <ErrorMessage
                       name="password"
                       component="div"
-                      className="text-xs italic text-right text-primary-red"
+                      className="text-xs italic text-left text-red-700"
                       style={{ marginTop: '0.5rem' }}
                     />
                     <div className="flex items-center mb-4">
