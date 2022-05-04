@@ -43,6 +43,131 @@ exports[`Signup matches 1`] = `
               onSubmit={[Function]}
             >
               <div
+                className="flex"
+              >
+                <div>
+                  <div
+                    className="relative"
+                  >
+                    <label
+                      aria-label="firstName"
+                      className="hidden"
+                      htmlFor="firstName"
+                    >
+                      First Name
+                    </label>
+                    <input
+                      className="w-full h-[48px] p-4 font-semibold placeholder-gray-500 border rounded-lg outline-none lg:px-8 focus:ring-accent-blue focus:ring-1"
+                      id="firstName"
+                      name="firstName"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="First Name"
+                      style={null}
+                      type="text"
+                      value=""
+                    />
+                    <svg
+                      className="absolute w-6 text-red-400 right-8 top-2.5"
+                      fill="currentColor"
+                      style={
+                        Object {
+                          "display": "none",
+                        }
+                      }
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="relative"
+                  >
+                    <label
+                      aria-label="lastName"
+                      className="hidden"
+                      htmlFor="lastName"
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      className="w-full h-[48px] p-4 font-semibold placeholder-gray-500 border rounded-lg outline-none lg:px-8 focus:ring-accent-blue focus:ring-1"
+                      id="lastName"
+                      name="lastName"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Last Name"
+                      style={null}
+                      type="text"
+                      value=""
+                    />
+                    <svg
+                      className="absolute w-6 text-red-400 right-8 top-2.5"
+                      fill="currentColor"
+                      style={
+                        Object {
+                          "display": "none",
+                        }
+                      }
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="relative"
+              >
+                <label
+                  aria-label="username"
+                  className="hidden"
+                  htmlFor="username"
+                >
+                  Username
+                </label>
+                <input
+                  className="w-full h-[48px] p-4 font-semibold placeholder-gray-500 border rounded-lg outline-none lg:px-8 focus:ring-accent-blue focus:ring-1"
+                  id="username"
+                  name="username"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Username"
+                  style={null}
+                  type="text"
+                  value=""
+                />
+                <svg
+                  className="absolute w-6 text-red-400 right-8 top-2.5"
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "display": "none",
+                    }
+                  }
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
                 className="relative"
               >
                 <label
@@ -64,7 +189,7 @@ exports[`Signup matches 1`] = `
                   value=""
                 />
                 <svg
-                  className="absolute w-10 text-primary-red right-8 top-2.5"
+                  className="absolute w-6 text-red-400 right-8 top-2.5"
                   fill="currentColor"
                   style={
                     Object {
@@ -103,7 +228,7 @@ exports[`Signup matches 1`] = `
                   value=""
                 />
                 <svg
-                  className="absolute w-10 text-primary-red right-8 top-2.5"
+                  className="absolute w-6 text-red-400 right-8 top-2.5"
                   fill="currentColor"
                   style={
                     Object {
@@ -124,30 +249,52 @@ exports[`Signup matches 1`] = `
                 className="relative"
               >
                 <label
-                  aria-label="Password"
+                  aria-label="passwordConfirm"
                   className="hidden"
-                  htmlFor="password2"
+                  htmlFor="passwordConfirm"
                 >
                   password
                 </label>
                 <input
                   className="w-full h-[48px]  p-4 font-semibold placeholder-gray-500 border rounded-lg outline-none lg:px-8 focus:ring-accent-blue focus:ring-1"
-                  id="password2"
-                  name="password2"
+                  id="passwordConfirm"
+                  name="passwordConfirm"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Retype Password"
+                  style={null}
                   type="password"
+                  value=""
                 />
+                <svg
+                  className="absolute w-6 text-red-400 right-8 top-2.5"
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "display": "none",
+                    }
+                  }
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                    fillRule="evenodd"
+                  />
+                </svg>
               </div>
               <div
                 className="flex items-center mb-4"
               >
                 <input
+                  checked={false}
                   className="w-3  ml-2 h-3 text-[#FF7338] bg-gray-100 rounded border-gray-300 focus:ring-[#FF7338] dark:focus:ring-[#FF7338] dark:ring-offset-[#FF7338] focus:ring-2 dark:bg-[#FF7338] dark:border-[#FF7338]"
-                  id="checkbox-3"
-                  roboto-describedby="checkbox-3"
+                  name="acceptTerms"
+                  onBlur={[Function]}
+                  onChange={[Function]}
                   type="checkbox"
+                  value={false}
                 />
                 <p
                   className="text-sm ml-3"

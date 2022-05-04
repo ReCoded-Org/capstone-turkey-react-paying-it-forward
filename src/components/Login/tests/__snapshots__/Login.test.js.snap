@@ -16,9 +16,6 @@ exports[`Login Component matches 1`] = `
         <div
           className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1 sm:items-center"
         >
-          <blockquote
-            className="text-2xl sm:items-center font-medium text-center"
-          />
           <img
             alt="Logo"
             className="w-[109px] h-[95px] m-[-25x] mx-[20px]"
@@ -49,6 +46,7 @@ exports[`Login Component matches 1`] = `
                   aria-label="Email"
                   className="hidden"
                   htmlFor="email"
+                  id="username"
                 >
                   email
                 </label>
@@ -61,10 +59,9 @@ exports[`Login Component matches 1`] = `
                   placeholder="Email"
                   style={null}
                   type="text"
-                  value=""
                 />
                 <svg
-                  className="absolute w-10 text-primary-red right-8 top-2.5"
+                  className="absolute w-6 text-red-400 right-8 top-2.5"
                   fill="currentColor"
                   style={
                     Object {
@@ -103,7 +100,7 @@ exports[`Login Component matches 1`] = `
                   value=""
                 />
                 <svg
-                  className="absolute w-10 text-primary-red right-8 top-2.5"
+                  className="absolute w-6 text-red-400 right-8 top-2.5"
                   fill="currentColor"
                   style={
                     Object {
