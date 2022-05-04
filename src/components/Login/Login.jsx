@@ -1,31 +1,42 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { SIGN_UP } from '../../routes';
+import { SIGN_UP, HOME } from '../../routes';
+import { login } from '../../utils/UserAPI';
 import logoc from '../../assets/images/logoc.png';
 import Light from '../../assets/images/Light.png';
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const { isSuccessLogin } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
   const { t } = useTranslation(['common']);
   /* eslint-disable react/jsx-props-no-spreading */
+
+  useEffect(() => {
+    if (isSuccessLogin) {
+      navigate(HOME);
+    }
+  }, [isSuccessLogin, navigate]);
+
   return (
     <Formik
       initialValues={{
-        email: '',
+        username: '',
         password: '',
       }}
       validationSchema={Yup.object({
-        email: Yup.string()
-          .email('Looks like this is not an email')
-          .required('Email cannot be empty'),
+        username: Yup.string().required('Username cannot be empty'),
         password: Yup.string().required('Password cannot be empty'),
       })}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          actions.resetForm();
-        }, 1000);
+      onSubmit={(values, { setSubmitting }) => {
+        login(dispatch, values);
+        setSubmitting(false);
       }}
     >
       <div className="min-h-screen flex items-center justify-center sm:items-center">
@@ -33,9 +44,6 @@ export default function Login() {
           <div className="w-full xl:w-3/4 lg:w-11/12 h-full flex">
             <figure className=" bg-white">
               <div className="w-full max-w-md  rounded-lg  border-primaryBorder shadow-default py-10 px-1 sm:items-center">
-                <blockquote className="text-2xl sm:items-center font-medium text-center">
-                  {}
-                </blockquote>
                 <img
                   className="w-[109px] h-[95px] m-[-25x] mx-[20px]"
                   src={logoc}
@@ -52,6 +60,7 @@ export default function Login() {
                       {({ field, form }) => (
                         <div className="relative">
                           <label
+                            id="username"
                             htmlFor="email"
                             aria-label="Email"
                             className="hidden"
@@ -75,7 +84,7 @@ export default function Login() {
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
-                            className="absolute w-10 text-primary-red right-8 top-2.5"
+                            className="absolute w-6 text-red-400 right-8 top-2.5"
                             style={
                               form.touched.email && form.errors.email
                                 ? { display: 'block' }
@@ -94,7 +103,7 @@ export default function Login() {
                     <ErrorMessage
                       name="email"
                       component="div"
-                      className="text-xs italic text-right text-primary-red"
+                      className="text-xs italic text-left text-red-700"
                       style={{ marginTop: '0.5rem' }}
                     />
                     <Field name="password">
@@ -124,7 +133,7 @@ export default function Login() {
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
-                            className="absolute w-10 text-primary-red right-8 top-2.5"
+                            className="absolute w-6 text-red-400 right-8 top-2.5"
                             style={
                               form.touched.password && form.errors.password
                                 ? { display: 'block' }
@@ -143,7 +152,7 @@ export default function Login() {
                     <ErrorMessage
                       name="password"
                       component="div"
-                      className="text-xs italic text-right text-primary-red"
+                      className="text-xs italic text-left text-red-700"
                       style={{ marginTop: '0.5rem' }}
                     />
                     <div className="flex items-center mb-4">

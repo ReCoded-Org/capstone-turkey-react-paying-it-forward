@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Suspense } from 'react';
-import './App.css';
 
+import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
@@ -20,6 +20,7 @@ import {
   REQUEST,
   SIGN_UP,
   CONTACT_US,
+  HOW_IT_WORKS,
 } from './routes';
 import Team from './pages/Team/Team';
 
@@ -38,6 +39,7 @@ export default function App() {
             <Route path={ABOUT_US} element={<Team />} />
             <Route path={CONTACT_US} element={<ContactUs />} />
             <Route path={QA} element={<Faq />} />
+            <Route path={HOW_IT_WORKS} element={<Faq />} />
             <Route path="*" element={<Home />} />
           </Routes>
           <Footer />
