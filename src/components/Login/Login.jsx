@@ -27,13 +27,10 @@ export default function Login() {
         password: '',
       }}
       validationSchema={Yup.object({
-        email: Yup.string().required('Email cannot be empty'),
+        username: Yup.string().required('Username cannot be empty'),
         password: Yup.string().required('Password cannot be empty'),
       })}
       onSubmit={(values, { setSubmitting }) => {
-        const test = values.email.split('@');
-        values.username = test[0];
-        delete values.email;
         login(dispatch, values);
         setSubmitting(false);
       }}
