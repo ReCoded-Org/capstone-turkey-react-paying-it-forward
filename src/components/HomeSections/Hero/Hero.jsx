@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useTranslation } from 'react-i18next';
 
 import donate from '../../../assets/Home/donate.svg';
 import request from '../../../assets/Home/request.svg';
@@ -9,14 +10,15 @@ let slideInterval;
 const featuredProducts = [donate, request];
 const button = ['Donation', 'Request'];
 const paragraph = [
-  ' Realm of the galaxies across the centuries the carbon in our apple',
-  ' Realm of the galaxies across the centuries the carbon in our applpies vanquish the impossible',
+  'Click the button below to donate.',
+  'Click the button below to make a request.',
 ];
-const header = ['make a donation', 'make a request'];
+const header = ['Make a donation', 'Make a request'];
 function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const slideRef = useRef();
+  const { t } = useTranslation(['common']);
 
   const handleOnNextClick = () => {
     count = (count + 1) % featuredProducts.length;
@@ -64,14 +66,14 @@ function Hero() {
           alt=""
         />
         <h1 className="text-2xl text-black font-bold mb-1">
-          {header[currentIndex]}
+          {t(header[currentIndex])}
         </h1>
-        <p className="">{paragraph[currentIndex]}</p>
+        <p className="">{t(paragraph[currentIndex])}</p>
         <button
           type="button"
           className="bg-[#FF4848E8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-white font-bold py-4 w-[40%] mt-4 rounded-xl text-2xl tracking-wider mb-4"
         >
-          {button[currentIndex]}
+          {t(button[currentIndex])}
         </button>
       </div>
 
