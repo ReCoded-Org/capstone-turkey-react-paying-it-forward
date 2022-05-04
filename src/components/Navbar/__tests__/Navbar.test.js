@@ -52,6 +52,4 @@ test('Links in the Navbar', () => {
   userEvent.click(screen.queryAllByText(/howItWorks?/i)[0]);
   expect(window.location.pathname).toEqual('/how-it-works');
 
-  userEvent.click(screen.queryAllByText(/logOut/i)[0]);
-  expect(window.location.pathname).toEqual('/logout');
 });
