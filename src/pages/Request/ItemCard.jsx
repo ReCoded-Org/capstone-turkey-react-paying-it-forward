@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 
 import RequestModalItem from './RequestModalItem';
 
@@ -13,20 +14,20 @@ function ItemCard({ data, onResponse }) {
   const onDonateItemClick = () => {
     setLoading(true);
 
-    fetch(`${process.env.REACT_APP_API_URI}/items/donate`, {
-      headers: {
-        accept: 'application/json',
-      },
-      body: {
-        donateItemId: data._id,
-        borrowerId: data.owner,
-      },
-      method: 'PUT',
-    })
-      .then((resp) => {
-        if (!resp.ok) return Promise.reject(resp);
-        return resp.json();
-      })
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URI}/items/donate`,
+        JSON.stringify({
+          donateItemId: data._id,
+          borrowerId: data.owner,
+        }),
+        {
+          withCredentials: true,
+          headers: {
+            'content-type': 'application/json',
+          },
+        },
+      )
       .then(() => {
         onResponse({
           status: 'success',
@@ -34,7 +35,7 @@ function ItemCard({ data, onResponse }) {
         });
       })
       .catch((error) => {
-        error.json().then((e) => onResponse({ status: 'failed', ...e }));
+        onResponse({ status: 'failed', message: error.response.data.message });
       })
       .finally(() => {
         setLoading(false);
