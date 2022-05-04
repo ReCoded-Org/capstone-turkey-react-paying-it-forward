@@ -25,10 +25,9 @@ const showErrorMessage = (error) => {
 const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    await axios.post(
-      'https://payingitforward.re-coded.com/api/auth/signin',
-      user,
-    );
+    await axios.post(`${process.env.REACT_APP_API_URI}/auth/signin`, user, {
+      withCredentials: true,
+    });
     dispatch(loginSuccess());
   } catch (error) {
     showErrorMessage(error);
@@ -40,7 +39,7 @@ const register = async (dispatch, user) => {
   dispatch(registerStart());
   try {
     const res = await axios.post(
-      'https://payingitforward.re-coded.com/api/auth/signup',
+      `${process.env.REACT_APP_API_URI}/auth/signup`,
       user,
     );
     dispatch(registerSuccess(res.data));

@@ -43,22 +43,23 @@ exports[`Login Component matches 1`] = `
                 className="relative"
               >
                 <label
-                  aria-label="Email"
+                  aria-label="Username"
                   className="hidden"
-                  htmlFor="email"
+                  htmlFor="username"
                   id="username"
                 >
                   email
                 </label>
                 <input
                   className="w-full h-[48px] p-4 font-semibold placeholder-gray-500 border rounded-lg outline-none lg:px-8 focus:ring-accent-blue focus:ring-1"
-                  id="email1"
-                  name="email"
+                  id="username"
+                  name="username"
                   onBlur={[Function]}
                   onChange={[Function]}
-                  placeholder="Email"
+                  placeholder="User name"
                   style={null}
                   type="text"
+                  value=""
                 />
                 <svg
                   className="absolute w-6 text-red-400 right-8 top-2.5"

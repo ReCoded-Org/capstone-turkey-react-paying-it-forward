@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 
 const customStyles = {
   content: {
@@ -30,23 +31,23 @@ function ItemCard({ data, onResponse }) {
   const onRequestDonatedItem = () => {
     setLoading(true);
 
-    fetch(`${process.env.REACT_APP_API_URI}/requests`, {
-      headers: {
-        accept: 'application/json',
-      },
-      body: JSON.stringify({
-        _id: data._id,
-        name: data.name,
-        description: data.description,
-        type: data.type,
-        photo: data.photo,
-      }),
-      method: 'POST',
-    })
-      .then((resp) => {
-        if (!resp.ok) return Promise.reject(resp);
-        return resp.json();
-      })
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URI}/requests`,
+        JSON.stringify({
+          _id: data._id,
+          name: data.name,
+          description: data.description,
+          type: data.type,
+          photo: data.photo,
+        }),
+        {
+          withCredentials: true,
+          headers: {
+            'content-type': 'application/json',
+          },
+        },
+      )
       .then(() => {
         onResponse({
           status: 'success',
@@ -54,7 +55,7 @@ function ItemCard({ data, onResponse }) {
         });
       })
       .catch((error) => {
-        error.json().then((e) => onResponse({ status: 'failed', ...e }));
+        onResponse({ status: 'failed', message: error.response.data.message });
       })
       .finally(() => {
         setLoading(false);
