@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { CONTACT_US } from '../../routes';
 
 export default function FooterResourcesLinks() {
   const { t } = useTranslation(['common']);
@@ -13,7 +15,7 @@ export default function FooterResourcesLinks() {
           <a href="#!">{t('termsAndConditions')}</a>
         </li>
         <li>
-          <a href="#!">{t('contactUs')}</a>
+          <Link to={CONTACT_US}>{t('contactUs')}</Link>
         </li>
       </ul>
     </div>
