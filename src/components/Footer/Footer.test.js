@@ -6,7 +6,11 @@ import SubscriptionForm from './SubscriptionForm';
 
 describe('<Footer />', () => {
   test('Subscription field', () => {
-    render(<Footer />);
+    render(
+      <BrowserRouter>
+        <Footer />
+      </BrowserRouter>,
+    );
 
     const subElement = screen.getByTestId('subscription');
     expect(subElement).toBeInTheDocument();

@@ -23,7 +23,6 @@ function ItemCard({ data, onResponse }) {
   function openModal() {
     setIsOpen(true);
   }
-
   function closeModal() {
     setIsOpen(false);
   }
