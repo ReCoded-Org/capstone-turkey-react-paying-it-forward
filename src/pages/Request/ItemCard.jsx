@@ -15,7 +15,7 @@ function ItemCard({ data, onResponse }) {
     setLoading(true);
 
     axios
-      .post(
+      .put(
         `${process.env.REACT_APP_API_URI}/items/donate`,
         JSON.stringify({
           donateItemId: data._id,
